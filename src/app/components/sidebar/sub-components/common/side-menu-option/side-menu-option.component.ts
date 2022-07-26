@@ -8,6 +8,7 @@ import {Component, Input } from '@angular/core';
 export class SideMenuOptionComponent {
   @Input() backgroundColourClass!: string;
   @Input() label!: string;
+  @Input() showDeleteIcon!: boolean;
 
   @Input()
   get iconName(): string { return this.iconPath; }
@@ -16,5 +17,4 @@ export class SideMenuOptionComponent {
   }
 
   iconPath = '';
-  showDeleteIcon = (this.iconPath === '/assets/images/task_icon.png');
 }

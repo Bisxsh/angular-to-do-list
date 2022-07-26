@@ -1,0 +1,8 @@
+<div [class]="'side-menu-option--container '+backgroundColourClass">
+  <img class="side-menu-option--icon" [src]="iconPath" alt="" />
+  <p class="side-menu-option--label">{{label}}</p>
+
+  <img [class]="'side-menu-option--delete ' + (showDeleteIcon ? '' : '.side-menu-option--hidden')"
+       src="/assets/images/delete_task.png"
+       alt="delete"/>
+</div>

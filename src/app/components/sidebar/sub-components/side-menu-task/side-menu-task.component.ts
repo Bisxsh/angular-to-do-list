@@ -7,6 +7,7 @@ import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 })
 export class SideMenuTaskComponent implements OnChanges{
   @Input() active!: boolean;
+  @Input() label!: string;
 
   iconName:string = this.getIconName();
 
