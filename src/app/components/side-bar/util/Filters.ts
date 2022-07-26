@@ -1,9 +1,9 @@
-const filters: IFilter[] = [
+export let filters: IFilter[] = [
   {
     label: 'All Tasks',
     activeIcon: 'all_tasks_active.png',
     inactiveIcon: 'all_tasks_inactive.png',
-    active: true
+    active: true,
   },
 
   {
@@ -28,5 +28,3 @@ const filters: IFilter[] = [
   },
 
 ];
-
-export default filters;

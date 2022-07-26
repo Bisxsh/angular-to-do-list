@@ -5,25 +5,12 @@
   </div>
 
   <app-side-menu-filter
-    label="All tasks"
-    [active]="true"
-    iconName="all_tasks_active.png"
-  ></app-side-menu-filter>
-  <app-side-menu-filter
-    label="All tasks"
-    [active]="false"
-    iconName="all_tasks_active.png"
-  ></app-side-menu-filter>
-  <app-side-menu-filter
-    label="All tasks"
-    [active]="false"
-    iconName="all_tasks_active.png"
-  ></app-side-menu-filter>
-  <app-side-menu-filter
-    label="All tasks"
-    [active]="false"
-    iconName="all_tasks_active.png"
-  ></app-side-menu-filter>
+  *ngFor="let filter of filters;"
+  [label]="filter.label"
+  [active]="filter.active"
+  [iconName]="(filter.active) ? filter.activeIcon : filter.inactiveIcon"
+  >
+  </app-side-menu-filter>
 
   <hr class="side-bar--line"/>
 

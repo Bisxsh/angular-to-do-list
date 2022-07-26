@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { filters } from './util/Filters'
 
 @Component({
   selector: 'app-side-bar',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class SideBarComponent {
 
-  filters: IFilter[] = [];
+  filters: IFilter[] = filters;
 
   tasks!: object[];
 
