@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-colour: #5E6472;
+  --primary-accent: #7BEDE1;
+  --seconary-accent: #AED9E0;
+}
+
+html {
+  height: 100%;
+  font-family: "Nunito", sans-serif;
+  font-weight: 300;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.primary-colour {
+  background-color: var(--primary-colour);
+}
+
+.primary-accent {
+  background-color: var(--primary-accent);
+}
+
+.secondary-accent {
+  background-color: var(--seconary-accent);
+}

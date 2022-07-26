@@ -1,0 +1,19 @@
+.side-menu-option--container {
+  width: fit-content;
+  height: clamp(1vh, 100%, 1vh);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.side-menu-option--delete {
+  width: 40px;
+  margin: 0 13px 0 70px;
+}
+
+.side-menu-option--icon {
+  width: 40px;
+  margin: 0 40px 0 13px;
+}
