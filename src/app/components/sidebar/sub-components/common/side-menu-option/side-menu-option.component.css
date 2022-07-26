@@ -15,18 +15,12 @@
 .side-menu-option--delete {
   width: 40px;
   margin: 0 13px 0 70px;
-  visibility: hidden;
 }
 
 .side-menu-option--hidden {
   visibility: hidden;
   pointer-events: none;
-}
-
-.side-menu-option--delete-replacement {
   background-color: blue;
-  width: 100px;
-  height: 100px;
 }
 
 .side-menu-option--icon {
