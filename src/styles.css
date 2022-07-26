@@ -14,6 +14,10 @@ html {
   visibility: hidden;
 }
 
+.grey_font {
+  color: #97999B;
+}
+
 .primary-colour {
   background-color: var(--primary-colour);
 }

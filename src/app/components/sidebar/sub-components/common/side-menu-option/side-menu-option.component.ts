@@ -1,11 +1,11 @@
-import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-side-menu-option',
   templateUrl: './side-menu-option.component.html',
   styleUrls: ['./side-menu-option.component.css']
 })
-export class SideMenuOptionComponent implements OnChanges{
+export class SideMenuOptionComponent {
   @Input() backgroundColourClass!: string;
   @Input() backgroundActive!: boolean;
   @Input() label!: string;
@@ -18,8 +18,4 @@ export class SideMenuOptionComponent implements OnChanges{
   }
 
   iconPath = '';
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.showDeleteIcon)
-  }
 }
