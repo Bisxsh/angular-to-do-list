@@ -1,7 +1,8 @@
 <app-side-menu-option
+  [class]="(active) ? '' : 'grey_font'"
   backgroundColourClass="secondary-accent"
   [label]="label"
   [iconName]="iconName"
-  [showDeleteIcon]="true"
+  [showDeleteIcon]="active"
  [backgroundActive] = "active">
 </app-side-menu-option>

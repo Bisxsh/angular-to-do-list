@@ -1,15 +1,15 @@
 .side-menu-option--container {
-  width: clamp(30vw, 100%, 35vw);
-  height: clamp(1vh, 100%, 1vh);
+  width: clamp(10vw, 100%, 19vw);
+  height: clamp(1vh, 100%, 7vh);
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-radius: 10px;
   padding: 5px;
+  cursor: pointer;
 }
 
 .side-menu-option--label {
-  margin-right: auto;
   margin-left: 15px;
 }
 

@@ -1,1 +1,45 @@
-<p>side-bar works!</p>
+<div class="side-bar--container">
+  <div class="side-bar--header" >
+    <img class="side-bar--logo" src="assets/images/logo.png" alt="logo" />
+    <h1 class="side-bar--title">Todo List</h1>
+  </div>
+
+  <app-side-menu-filter
+    label="All tasks"
+    [active]="true"
+    iconName="all_tasks_active.png"
+  ></app-side-menu-filter>
+  <app-side-menu-filter
+    label="All tasks"
+    [active]="false"
+    iconName="all_tasks_active.png"
+  ></app-side-menu-filter>
+  <app-side-menu-filter
+    label="All tasks"
+    [active]="false"
+    iconName="all_tasks_active.png"
+  ></app-side-menu-filter>
+  <app-side-menu-filter
+    label="All tasks"
+    [active]="false"
+    iconName="all_tasks_active.png"
+  ></app-side-menu-filter>
+
+  <hr class="side-bar--line"/>
+
+  <app-side-menu-task
+    [active]=true
+    label="Task 1"
+  >
+  </app-side-menu-task>
+  <app-side-menu-task
+    [active]=false
+    label="Task 1"
+  >
+  </app-side-menu-task>
+  <app-side-menu-task
+    [active]=false
+    label="Task 1"
+  >
+  </app-side-menu-task>
+</div>
