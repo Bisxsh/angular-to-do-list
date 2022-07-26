@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
   styleUrls: ['./side-bar.component.css']
 })
-export class SideBarComponent implements OnInit {
+export class SideBarComponent {
 
-  constructor() { }
+  filters: IFilter[] = [];
 
-  ngOnInit(): void {
-  }
+  tasks!: object[];
+
 
 }
