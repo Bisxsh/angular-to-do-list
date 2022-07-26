@@ -1,4 +1,4 @@
-<div [class]="'side-menu-option--container '+backgroundColourClass">
+<div [class]="'side-menu-option--container '+(backgroundActive ? backgroundColourClass : '')">
   <img class="side-menu-option--icon" [src]="iconPath" alt="" />
   <p class="side-menu-option--label">{{label}}</p>
 

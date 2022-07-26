@@ -1,5 +1,5 @@
 .side-menu-option--container {
-  width: clamp(35vw, 100%, 40vw);
+  width: clamp(30vw, 100%, 35vw);
   height: clamp(1vh, 100%, 1vh);
   display: flex;
   justify-content: space-between;

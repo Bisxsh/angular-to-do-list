@@ -7,6 +7,7 @@ import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 })
 export class SideMenuOptionComponent implements OnChanges{
   @Input() backgroundColourClass!: string;
+  @Input() backgroundActive!: boolean;
   @Input() label!: string;
   @Input() showDeleteIcon!: boolean;
 

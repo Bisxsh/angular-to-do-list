@@ -9,6 +9,7 @@ export class SideMenuFilterComponent implements OnChanges {
 
   @Input() label: string = "";
   @Input() iconName: string = "";
+  @Input() active!: boolean;
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
