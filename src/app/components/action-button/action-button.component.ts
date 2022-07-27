@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {TaskService} from "../../../services/task.service";
-import {ITask} from "../../../interfaces/ITask";
+import {BLANK_TASK, ITask} from "../../../interfaces/ITask";
 
 @Component({
   selector: 'app-action-button',
@@ -9,10 +9,10 @@ import {ITask} from "../../../interfaces/ITask";
 })
 export class ActionButtonComponent {
 
-  showMenu: boolean = false;
-
   constructor(private service: TaskService) { }
 
+  showMenu: boolean = false;
+  showPrompt: boolean = false;
   tasks!:ITask[];
 
   ngOnInit(): void {
@@ -30,19 +30,19 @@ export class ActionButtonComponent {
         id: t.id+1
       }
     })
-    temp.unshift({
-
-      id: 0,
-      title: "Untitled Note",
-      userId: 1,
-      completed: false,
-
-      category: "",
-      active: true,
-      description: "# Type your markdown notes here"
-    })
+    temp.unshift(BLANK_TASK)
     this.service.changeActiveTask(temp[0]);
     this.service.changeTasks(temp);
+    this.toggleMenu();
+  }
+
+  toggleDeletePrompt() {
+    this.showPrompt = !this.showPrompt;
+  }
+
+  deleteAllNotes() {
+    this.service.changeTasks([]);
+    this.toggleDeletePrompt();
     this.toggleMenu();
   }
 

@@ -1,6 +1,7 @@
 <div class="buttons--container">
   <app-delete-all-button
     [class]="'buttons--button-2 ' + (showMenu ? '' : 'hidden')"
+    (click)="toggleDeletePrompt()"
   ></app-delete-all-button>
   <app-add-task-button
     [class]="'buttons--button-3 ' + (showMenu ? '' : 'hidden')"
@@ -18,4 +19,21 @@
     <img class="button--image" src="assets/images/options.png" alt="actions button" />
   </div>
 
+</div>
+
+<div [class]="'button--prompt '+(showPrompt ? '' : 'hidden')">
+  <div class="button--prompt-text">
+    <p class="button--prompt--main-text">Are you sure you want to delete all your notes?</p>
+    <p class="button--prompt--sub-text"> WARNING: This action cannot be undone.</p>
+  </div>
+  <div class="button--prompt-buttons">
+    <button
+      class="button--prompt-buttons--confirm"
+      (click)="deleteAllNotes()"
+    >Confirm</button>
+    <button
+      class="button--prompt-buttons--cancel"
+      (click)="toggleDeletePrompt()"
+    >Cancel</button>
+  </div>
 </div>

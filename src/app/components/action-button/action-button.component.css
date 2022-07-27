@@ -37,3 +37,61 @@
   aspect-ratio: 1/1;
   max-width: 100%;
 }
+
+/*Prompt window*/
+
+.button--prompt {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 25vw;
+  height: 25vh;
+  background-color: var(--primary-colour);
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  padding: 15px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.button--prompt-text {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button--prompt--main-text {
+  font-size: 18px;
+}
+
+.button--prompt--sub-text {
+  font-size: 16px;
+  font-style: italic;
+}
+
+.button--prompt-buttons > button {
+  padding: 10px 40px;
+  border-radius: 20px;
+  font-size: 16px;
+  margin-inline: 15px;
+}
+
+.button--prompt-buttons--confirm {
+  border: 1px solid var(--primary-accent);
+  background-color: rgba(174, 217, 224, 0.15);;
+  color: white;
+  cursor: pointer;
+}
+
+.button--prompt-buttons--cancel {
+  background-color: var(--primary-accent);
+  border: 1px solid var(--primary-colour);
+  cursor: pointer;
+}
+
+

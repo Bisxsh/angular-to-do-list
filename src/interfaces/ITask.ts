@@ -8,3 +8,14 @@ export interface ITask {
   active: boolean
   description: string
 }
+
+export const BLANK_TASK = {
+  id: 0,
+  title: "Untitled Note",
+  userId: 1,
+  completed: false,
+
+  category: "",
+  active: true,
+  description: "# Type your markdown notes here"
+}
