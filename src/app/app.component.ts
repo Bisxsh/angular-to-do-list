@@ -37,11 +37,12 @@ export class AppComponent implements OnInit{
             completed: obj.completed,
 
             category: obj.category || "",
-            active: (obj.id === 1)
+            active: (obj.id === 1),
+            description: "# Type your markdown note's title here"
           }
           this.tasks.push(t);
 
-          if (i === 0) this.activeTask = obj;
+          if (i === 0) this.activeTask = t;
         }
       });
   }
@@ -78,6 +79,20 @@ export class AppComponent implements OnInit{
       }
       return t;
     })
+  }
+
+  activeTaskContentChange(data: any) {
+    this.tasks = this.tasks.map(t => {
+      if (t.id == this.activeTaskIndex) {
+        return {
+          ...t,
+          description: data
+        }
+      }
+      return t;
+    })
+    console.log(this.activeTask);
+    console.log(this.tasks)
   }
 
 }

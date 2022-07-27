@@ -17,6 +17,8 @@
     <div class="app--editor-container">
       <app-editor
         class="app--editor"
+        [activeTask]="activeTask"
+        (taskContentChange)="activeTaskContentChange($event)"
       ></app-editor>
     </div>
 

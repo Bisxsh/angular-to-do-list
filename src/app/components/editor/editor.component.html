@@ -1,3 +1,18 @@
-<div class="editor--container">
-
+<div
+  class="editor--container"
+  *ngIf="write; else elseBlock" xmlns="http://www.w3.org/1999/html">
+  <textarea
+    class="editor--write-input"
+    type="text"
+    [(ngModel)]="taskContent"
+    (change)="onChange($event)"></textarea>
 </div>
+
+<ng-template #elseBlock>
+
+  <div class="editor--container">
+
+  </div>
+
+</ng-template>
+

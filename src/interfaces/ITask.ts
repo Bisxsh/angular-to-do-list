@@ -6,4 +6,5 @@ export interface ITask {
 
   category: string,
   active: boolean
+  description: string
 }
