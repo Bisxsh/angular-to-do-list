@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { ITask } from "../interfaces/ITask";
 import {HttpClient} from "@angular/common/http";
-import { TaskService } from './services/task.service';
+import {TaskService} from "../services/task.service";
 
 @Component({
   selector: 'app-root',
@@ -12,7 +12,6 @@ export class AppComponent implements OnInit{
   title = 'todo-list';
 
   tasks!: ITask[];
-  activeTaskIndex: number = 1;
   activeTask!: ITask;
   editorWriteMode:boolean = true;
 
@@ -55,8 +54,8 @@ export class AppComponent implements OnInit{
   }
 
   activeTaskTitleChanged(data: any) {
-    this.tasks = this.tasks.map(t => {
-      if (t.id == this.activeTaskIndex) {
+    let temp = this.tasks.map(t => {
+      if (t.id == this.activeTask.id) {
         return {
           ...t,
           title: data
@@ -64,11 +63,12 @@ export class AppComponent implements OnInit{
       }
       return t;
     })
+    this.service.changeTasks(temp);
   }
 
   activeTaskContentChange(data: any) {
-    this.tasks = this.tasks.map(t => {
-      if (t.id == this.activeTaskIndex) {
+    let temp = this.tasks.map(t => {
+      if (t.id == this.activeTask.id) {
         return {
           ...t,
           description: data
@@ -76,6 +76,7 @@ export class AppComponent implements OnInit{
       }
       return t;
     })
+    this.service.changeTasks(temp);
   }
 
   editorWriteModeChange() {

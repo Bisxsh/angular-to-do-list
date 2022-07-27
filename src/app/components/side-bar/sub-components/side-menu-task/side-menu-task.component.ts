@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
-import {TaskService} from "../../../../services/task.service";
 import {ITask} from "../../../../../interfaces/ITask";
+import {TaskService} from "../../../../../services/task.service";
 
 @Component({
   selector: 'app-side-menu-task',

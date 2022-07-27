@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { filters } from './util/Filters'
 import { ITask } from "../../../interfaces/ITask";
-import {TaskService} from "../../services/task.service";
+import {TaskService} from "../../../services/task.service";
 
 @Component({
   selector: 'app-side-bar',
