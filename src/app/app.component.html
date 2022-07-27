@@ -1,18 +1,14 @@
-<!--<app-side-menu-task-->
-<!--  [active]=true-->
-<!--  label="Task 1"-->
-<!--  >-->
-<!--</app-side-menu-task>-->
-<!--<app-side-menu-filter-->
-<!--  label="All tasks"-->
-<!--  iconName="all_tasks_active.png"-->
-<!--  [active]="true"-->
-<!--&gt;-->
-<!--</app-side-menu-filter>-->
+<div class="app--container">
+  <app-side-bar
+    class="app--side-bar"
+    [tasks]="tasks"
+    (activeChanged)="activeTaskChanged($event)">
 
-<app-side-bar
-  class="app--side-bar"
-  [tasks]="tasks"
-  (activeChanged)="activeTaskChanged($event)">
+  </app-side-bar>
 
-</app-side-bar>
+  <div class="app--main-content">
+    <app-header class="app--header"></app-header>
+  </div>
+</div>
+
+

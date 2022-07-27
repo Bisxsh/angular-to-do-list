@@ -1,4 +1,10 @@
-.app--side-bar {
+.app--container {
   height: 100%;
-  background-color: blue;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+}
+
+.app--main-content {
+  flex-grow: 1;
 }
