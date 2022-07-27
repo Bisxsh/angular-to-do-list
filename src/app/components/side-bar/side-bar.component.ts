@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import { filters } from './util/Filters'
+import {Filters, filters} from './util/Filters'
 import { ITask } from "../../../interfaces/ITask";
 import {TaskService} from "../../../services/task.service";
 
@@ -14,6 +14,7 @@ export class SideBarComponent implements OnInit{
   activeTask!: ITask;
   active!: number;
   tasks!: ITask[];
+  filterApplied!: number;
 
   @Output('deleteTask') deleteEmitter: EventEmitter<any> = new EventEmitter<any>();
 
@@ -22,6 +23,7 @@ export class SideBarComponent implements OnInit{
   ngOnInit(): void {
     this.service.tasks.subscribe(t => this.tasks = t);
     this.service.activeTask.subscribe(t => this.activeTask = t);
+    this.service.filterApplied.subscribe(f => this.filterApplied = f);
   }
 
   taskClickHandler(data: any) {
@@ -36,7 +38,7 @@ export class SideBarComponent implements OnInit{
   }
 
   activeTaskChanged(index: number) {
-    this.tasks = this.tasks.map(t => {
+    let tempTasks =  this.tasks.map(t => {
       if (t.active) {
         return {
           ...t,
@@ -45,7 +47,7 @@ export class SideBarComponent implements OnInit{
       }
 
       if (index == t.id) {
-        this.activeTask = t;
+        this.service.changeActiveTask(t);
         return {
           ...t,
           active: true
@@ -54,10 +56,21 @@ export class SideBarComponent implements OnInit{
 
       return t;
     })
-    this.service.changeTasks(this.tasks);
-    this.service.changeActiveTask(this.activeTask);
+    this.service.changeTasks(tempTasks);
   }
 
+  getFilteredList() {
+    switch (this.filterApplied) {
+      default:
+      case Filters.ALL_TASKS:
+        return this.tasks;
 
+      case Filters.COMPLETED:
+        return this.tasks.filter(t => t.completed);
+
+      case Filters.INCOMPLETE:
+        return this.tasks.filter(t => !t.completed);
+    }
+  }
 
 }

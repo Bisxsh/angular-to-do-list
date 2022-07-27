@@ -20,13 +20,12 @@ export class EditorComponent implements OnChanges {
     tables: true,
     simplifiedAutoLink: true,
     strikethrough: true,
-    tasklists: true,
+    taskLists: true,
   })
 
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    // console.log(this.taskContent)
     for (let propName in changes) {
       let change = changes[propName];
       console.log(change)

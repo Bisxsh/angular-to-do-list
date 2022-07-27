@@ -6,6 +6,7 @@
 
   <app-side-menu-filter
   *ngFor="let filter of filters;"
+  [id]="filter.id"
   [label]="filter.label"
   [active]="filter.active"
   [iconName]="(filter.active) ? filter.activeIcon : filter.inactiveIcon"
@@ -19,7 +20,7 @@
 
     <div class="side-bar--tasks-container">
       <app-side-menu-task
-        *ngFor="let task of tasks;"
+        *ngFor="let task of getFilteredList();"
         [active]="task.active"
         [label]="task.title"
         [id]="task.id"

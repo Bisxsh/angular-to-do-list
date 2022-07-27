@@ -3,5 +3,5 @@ interface IFilter {
   inactiveIcon: string;
   label: string;
   active: boolean;
-  id ?: number
+  id : number
 }

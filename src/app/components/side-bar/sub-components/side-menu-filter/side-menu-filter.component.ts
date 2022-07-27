@@ -1,4 +1,5 @@
 import {Component, Input } from '@angular/core';
+import {TaskService} from "../../../../../services/task.service";
 
 @Component({
   selector: 'app-side-menu-filter',
@@ -10,5 +11,12 @@ export class SideMenuFilterComponent {
   @Input() label: string = "";
   @Input() iconName: string = "";
   @Input() active!: boolean;
+  @Input() id!:number;
+
+  constructor(private service: TaskService) { }
+
+  setFilterApplied() {
+    this.service.changeFilterApplied(this.id);
+  }
 
 }
