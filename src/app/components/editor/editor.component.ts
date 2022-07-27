@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import {ITask} from "../../../interfaces/ITask";
 import * as Showdown from "showdown";
+import {TaskService} from "../../../services/task.service";
 
 @Component({
   selector: 'app-editor',
@@ -8,6 +9,8 @@ import * as Showdown from "showdown";
   styleUrls: ['./editor.component.css']
 })
 export class EditorComponent implements OnChanges {
+
+  constructor(private service: TaskService) { }
 
   @Input() activeTask!: ITask;
   @Input() write!: boolean;
@@ -23,19 +26,21 @@ export class EditorComponent implements OnChanges {
     taskLists: true,
   })
 
-  constructor() { }
+  tasks!:ITask[];
+  ngOnInit(): void {
+    this.service.tasks.subscribe(t => this.tasks = t);
+  }
+
 
   ngOnChanges(changes: SimpleChanges): void {
     for (let propName in changes) {
       let change = changes[propName];
-      console.log(change)
       if (typeof change.currentValue != "boolean") {
         this.taskContent = change.currentValue.description;
         Promise.resolve(this.converter.makeHtml(this.taskContent))
           .then(d => this.contentTags = d);
       }
     }
-    console.log(this.taskContent)
   }
 
   onChange(event: any) {

@@ -1,7 +1,7 @@
 <div class="header--container">
 
   <input
-    class="header--title"
+    [class]="'header--title '+(tasks.length ? '' : 'hidden')"
     type="text"
     [(ngModel)]="title"
     (change)="onTitleChange($event)">

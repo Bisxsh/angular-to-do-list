@@ -1,4 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ITask} from "../../../interfaces/ITask";
+import {TaskService} from "../../../services/task.service";
 
 @Component({
   selector: 'app-header',
@@ -7,12 +9,16 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  constructor(private service: TaskService) { }
+
   @Input() title!: string;
   @Input() editorWriteMode!:boolean;
   @Output('taskTitleChange') taskEmitter: EventEmitter<any> = new EventEmitter<any>();
   @Output('editorModeChange') editorEmitter: EventEmitter<any> = new EventEmitter<any>();
 
+  tasks!:ITask[];
   ngOnInit(): void {
+    this.service.tasks.subscribe(t => this.tasks = t);
   }
 
   titleChangeHandler(title: any) {
@@ -24,6 +30,6 @@ export class HeaderComponent implements OnInit {
   }
 
   onModeChange() {
-    this.editorEmitter.emit(!this.editorWriteMode);
+    if (this.tasks.length) this.editorEmitter.emit(!this.editorWriteMode);
   }
 }

@@ -1,5 +1,5 @@
 <div
-  class="editor--container"
+  [class]="'editor--container '+(tasks.length ? '' : 'hidden')"
   *ngIf="write; else elseBlock" xmlns="http://www.w3.org/1999/html">
   <textarea
     class="editor--write-input"
