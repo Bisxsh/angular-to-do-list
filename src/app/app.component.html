@@ -1,9 +1,6 @@
 <div class="app--container">
   <app-side-bar
-    class="app--side-bar"
-    [tasks]="tasks"
-    (activeChanged)="activeTaskChanged($event)"
-    (deleteTask)="deleteTask($event)">
+    class="app--side-bar">
 
   </app-side-bar>
 
@@ -12,7 +9,7 @@
     <app-header
       class="app--header"
       [editorWriteMode]="editorWriteMode"
-      [title]="activeTask.title"
+      [title]="(activeTask && activeTask.title) || ''"
       (editorModeChange)="editorWriteModeChange()"
       (taskTitleChange)="activeTaskTitleChanged($event)"
     ></app-header>

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { ITask } from "../interfaces/ITask";
 import {HttpClient} from "@angular/common/http";
+import { TaskService } from './services/task.service';
 
 @Component({
   selector: 'app-root',
@@ -16,9 +17,12 @@ export class AppComponent implements OnInit{
   editorWriteMode:boolean = true;
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private service: TaskService) { }
 
   ngOnInit(): void {
+    this.service.tasks.subscribe(t => this.tasks = t);
+    this.service.activeTask.subscribe(t => this.activeTask = t);
+    console.log(this.tasks);
     //Load dummy data
     this.tasks = []
     this.http.get<ITask[]>("https://jsonplaceholder.typicode.com/todos")
@@ -46,28 +50,8 @@ export class AppComponent implements OnInit{
           if (i === 0) this.activeTask = t;
         }
       });
-  }
-
-  activeTaskChanged(data: any) {
-    this.activeTaskIndex = data;
-    this.tasks = this.tasks.map(t => {
-      if (t.active) {
-        return {
-          ...t,
-          active: false
-        }
-      }
-
-      if (this.activeTaskIndex == t.id) {
-        this.activeTask = t;
-        return {
-          ...t,
-          active: true
-        }
-      }
-
-      return t;
-    })
+    this.service.changeTasks(this.tasks);
+    this.service.changeActiveTask(this.activeTask);
   }
 
   activeTaskTitleChanged(data: any) {
@@ -96,17 +80,6 @@ export class AppComponent implements OnInit{
 
   editorWriteModeChange() {
     this.editorWriteMode = !this.editorWriteMode;
-  }
-
-  deleteTask(data: number) {
-    console.log(this.tasks);
-    this.tasks.splice(data-1, 1);
-    this.tasks = this.tasks.map(t => {
-      return {
-        ...t,
-        id: this.tasks.indexOf(t)+1
-      }
-    })
   }
 
 }
