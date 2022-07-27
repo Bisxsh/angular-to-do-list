@@ -3,6 +3,7 @@
   <input
     [class]="'header--title '+(tasks.length ? '' : 'hidden')"
     type="text"
+    placeholder="Title"
     [(ngModel)]="title"
     (change)="onTitleChange($event)">
 

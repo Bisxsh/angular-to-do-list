@@ -9,6 +9,7 @@
   ></app-add-task-button>
   <app-info-button
     [class]="'buttons--button-4 ' + (showMenu ? '' : 'hidden')"
+    (click)="toggleInfo()"
   ></app-info-button>
 
   <div
@@ -16,7 +17,7 @@
     (click)="toggleMenu()"
 
   >
-    <img class="button--image" src="assets/images/options.png" alt="actions button" />
+    <img class="button--image" src="assets/images/options.png" alt="actions button"/>
   </div>
 
 </div>
@@ -30,10 +31,34 @@
     <button
       class="button--prompt-buttons--confirm"
       (click)="deleteAllNotes()"
-    >Confirm</button>
+    >Confirm
+    </button>
     <button
       class="button--prompt-buttons--cancel"
       (click)="toggleDeletePrompt()"
-    >Cancel</button>
+    >Cancel
+    </button>
+  </div>
+</div>
+
+<div [class]="'popup_window '+(showInfo ? '' : 'hidden')" (click)="toggleInfo()">
+  <div class="button--info-container" (click)="toggleInfo()">
+    <p>
+      Hey, thanks for checking out this project! It was made to help consolidate my understanding of Angular.js whilst
+      also helping me employ some of the UI/UX techniques I had learnt.
+    </p>
+    <p> Check out the
+      <a href="https://www.figma.com/file/GQTxnhir2TgDUJDulqsMWV/Untitled?node-id=28%3A265" title="Figma desgin file">Figma</a>
+      design file :)</p>
+
+  <div>Icons made by
+    <a href="https://www.flaticon.com/authors/stockio" title="Stockio">Stockio</a>,
+    <a href="https://www.flaticon.com/authors/iconixar" title="iconixar">iconixar</a>,
+    <a href="https://www.flaticon.com/authors/good-ware" title="Good Ware">Good Ware</a>,
+    <a href="https://www.flaticon.com/authors/anggara" title="Anggara">Anggara</a>, and
+    <a href="https://www.flaticon.com/authors/senapedia" title="Senapedia">Senapedia</a> from <a
+    href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+    <button class="button--info-dismiss" (click)="toggleInfo()">Dismiss</button>
   </div>
 </div>

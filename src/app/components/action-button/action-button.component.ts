@@ -13,6 +13,7 @@ export class ActionButtonComponent {
 
   showMenu: boolean = false;
   showPrompt: boolean = false;
+  showInfo: boolean = false;
   tasks!:ITask[];
 
   ngOnInit(): void {
@@ -44,6 +45,10 @@ export class ActionButtonComponent {
     this.service.changeTasks([]);
     this.toggleDeletePrompt();
     this.toggleMenu();
+  }
+
+  toggleInfo() {
+    this.showInfo = !this.showInfo;
   }
 
   toggleMenu() {
