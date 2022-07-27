@@ -11,6 +11,8 @@ export class SideMenuOptionComponent {
   @Input() label!: string;
   @Input() showDeleteIcon!: boolean;
 
+  iconShown = this.showDeleteIcon || false;
+
   @Input()
   get iconName(): string { return this.iconPath; }
   set iconName(path: string) {
@@ -23,5 +25,13 @@ export class SideMenuOptionComponent {
 
   deleteTask() {
     this.eventEmitter.emit();
+  }
+
+  showIcon() {
+    if (this.showDeleteIcon) this.iconShown = true;
+  }
+
+  hideIcon() {
+    if (this.showDeleteIcon) this.iconShown = false;
   }
 }

@@ -58,3 +58,24 @@ input:focus, textarea:focus {
 .secondary-accent {
   background-color: var(--seconary-accent);
 }
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #faf3dd #5e6472;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #5e6472;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #faf3dd;
+  border-radius: 10px;
+}

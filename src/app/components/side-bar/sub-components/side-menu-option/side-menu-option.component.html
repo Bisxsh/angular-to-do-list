@@ -1,4 +1,7 @@
-<div [class]="'side-menu-option--container '+(backgroundActive ? backgroundColourClass : '')">
+<div
+  [class]="'side-menu-option--container '+(backgroundActive ? backgroundColourClass : '')"
+(mouseover)="showIcon()"
+(mouseout)="hideIcon()">
   <img class="side-menu-option--icon" [src]="iconPath" alt="" />
 
   <p class="side-menu-option--label">
@@ -6,7 +9,7 @@
   </p>
 
   <img
-    [class]="'side-menu-option--delete ' + (showDeleteIcon ? '' : 'side-menu-option--hidden' )"
+    [class]="'side-menu-option--delete ' + ((iconShown || false) ? '' : 'side-menu-option--hidden' )"
     src="assets/images/delete_task.png"
     alt="delete"
     (click)="deleteTask()"/>
