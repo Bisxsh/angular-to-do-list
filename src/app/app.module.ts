@@ -11,6 +11,7 @@ import { HeaderComponent } from './components/header/header.component'
 import {FormsModule} from "@angular/forms";
 import { EditorComponent } from './components/editor/editor.component';
 import {SideMenuTaskComponent} from "./components/side-bar/sub-components/side-menu-task/side-menu-task.component";
+import { ActionButtonComponent } from './components/action-button/action-button.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {SideMenuTaskComponent} from "./components/side-bar/sub-components/side-m
     SideMenuFilterComponent,
     SideBarComponent,
     HeaderComponent,
-    EditorComponent
+    EditorComponent,
+    ActionButtonComponent
   ],
   imports: [
     BrowserModule,

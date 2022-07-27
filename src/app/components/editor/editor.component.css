@@ -5,6 +5,10 @@
   overflow-y: hidden;
 }
 
+.editor--container > textarea {
+  resize: none;
+}
+
 .editor--write-input {
   margin: 15px;
   font-size: 1.3rem;

@@ -24,3 +24,11 @@
 .app--editor {
   flex-grow: 1;
 }
+
+.app--button {
+  position: absolute;
+  bottom: 1.5vw;
+  right: 1.5vw;
+  width: clamp(60px, 100%, 70px);
+  height: clamp(60px, 100%, 70px);
+}
