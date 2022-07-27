@@ -15,12 +15,12 @@
   <hr class="side-bar--line"/>
 
   <div *ngIf="tasks != undefined; then thenBlock;"></div>
-  <ng-template #thenBlock>
+  <ng-template #thenBlock class="side-bar--task-container">
 
     <app-side-menu-task
       *ngFor="let task of tasks;"
       [active]="task.active"
-      label="Test"
+      [label]="task.title"
     ></app-side-menu-task>
 
   </ng-template>
