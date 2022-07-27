@@ -11,7 +11,9 @@ export class AppComponent implements OnInit{
   title = 'todo-list';
 
   tasks!: ITask[];
-  activeTask: number = 0;
+  activeTaskIndex: number = 1;
+  activeTask!: ITask;
+
 
   constructor(private http: HttpClient) { }
 
@@ -38,12 +40,14 @@ export class AppComponent implements OnInit{
             active: (obj.id === 1)
           }
           this.tasks.push(t);
+
+          if (i === 0) this.activeTask = obj;
         }
       });
   }
 
   activeTaskChanged(data: any) {
-    this.activeTask = data;
+    this.activeTaskIndex = data;
     this.tasks = this.tasks.map(t => {
       if (t.active) {
         return {
@@ -52,7 +56,8 @@ export class AppComponent implements OnInit{
         }
       }
 
-      if (this.activeTask == t.id) {
+      if (this.activeTaskIndex == t.id) {
+        this.activeTask = t;
         return {
           ...t,
           active: true

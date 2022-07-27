@@ -7,7 +7,9 @@
   </app-side-bar>
 
   <div class="app--main-content">
-    <app-header class="app--header"></app-header>
+    <app-header class="app--header"
+      [title]="activeTask.title"
+    ></app-header>
   </div>
 </div>
 
