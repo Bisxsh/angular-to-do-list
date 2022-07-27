@@ -22,6 +22,8 @@
         *ngFor="let task of tasks;"
         [active]="task.active"
         [label]="task.title"
+        [id]="task.id"
+        (taskClicked)="taskClickHandler($event)"
       ></app-side-menu-task>
     </div>
 

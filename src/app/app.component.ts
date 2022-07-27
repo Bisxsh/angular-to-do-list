@@ -11,6 +11,7 @@ export class AppComponent implements OnInit{
   title = 'todo-list';
 
   tasks!: ITask[];
+  activeTask: number = 0;
 
   constructor(private http: HttpClient) { }
 
@@ -41,6 +42,25 @@ export class AppComponent implements OnInit{
       });
   }
 
+  activeTaskChanged(data: any) {
+    this.activeTask = data;
+    this.tasks = this.tasks.map(t => {
+      if (t.active) {
+        return {
+          ...t,
+          active: false
+        }
+      }
 
+      if (this.activeTask == t.id) {
+        return {
+          ...t,
+          active: true
+        }
+      }
+
+      return t;
+    })
+  }
 
 }

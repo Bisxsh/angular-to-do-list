@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-side-menu-task',
@@ -8,6 +8,7 @@ import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 export class SideMenuTaskComponent implements OnChanges{
   @Input() active!: boolean;
   @Input() label!: string;
+  @Input() id!: number;
 
   iconName:string = this.getIconName();
 
@@ -17,5 +18,11 @@ export class SideMenuTaskComponent implements OnChanges{
 
   ngOnChanges(changes: SimpleChanges): void {
     this.iconName = this.getIconName();
+  }
+
+  @Output('taskClicked') eventEmitter: EventEmitter<any> = new EventEmitter<any>();
+
+  taskClickHandler() {
+    this.eventEmitter.emit(this.id);
   }
 }
