@@ -23,6 +23,7 @@
         [active]="task.active"
         [label]="task.title"
         [id]="task.id"
+        [completed]="task.completed"
         (taskClicked)="taskClickHandler($event)"
         (deleteClicked)="deleteTaskHandler($event)"
       ></app-side-menu-task>

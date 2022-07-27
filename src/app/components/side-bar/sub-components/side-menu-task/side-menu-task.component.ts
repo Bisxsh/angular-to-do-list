@@ -12,6 +12,7 @@ export class SideMenuTaskComponent implements OnChanges{
   @Input() active!: boolean;
   @Input() label!: string;
   @Input() id!: number;
+  @Input() completed!: boolean;
 
   tasks!:ITask[];
   activeTask!:ITask;
@@ -25,6 +26,9 @@ export class SideMenuTaskComponent implements OnChanges{
   }
 
   getIconName() {
+    if (this.completed) {
+      return "completed_task"+((this.active) ? "s_" : "_in")+"active.png";
+    }
     return "task_icon_"+((this.active) ? "" : "in")+"active.png";
   }
 
