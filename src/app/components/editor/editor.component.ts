@@ -10,9 +10,9 @@ import * as Showdown from "showdown";
 export class EditorComponent implements OnChanges {
 
   @Input() activeTask!: ITask;
+  @Input() write!: boolean;
   @Output('taskContentChange') eventEmitter: EventEmitter<any> = new EventEmitter<any>();
 
-  write: boolean = true;
   taskContent: String = (this.activeTask) ? this.activeTask.description : "";
   contentTags!: string;
 

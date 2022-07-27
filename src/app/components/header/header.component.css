@@ -19,9 +19,9 @@
 .header--slider-container {
   margin: 20px;
   display: flex;
-  background: #5E6472;
   border: 1px solid var(--seconary-accent);
   border-radius: 24px;
+  cursor: pointer;
 }
 
 .header--slider {
@@ -31,8 +31,13 @@
 
 .header--slider-write-container, .header--slider-preview-container {
   border-radius: 24px;
-  background-color: var(--seconary-accent);
   padding: 4px;
+  color: white;
+}
+
+.filled {
+  background-color: var(--seconary-accent);
+  color: black;
 }
 
 .header--slider-write, .header--slider-preview {

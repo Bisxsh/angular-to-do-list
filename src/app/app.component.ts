@@ -13,6 +13,7 @@ export class AppComponent implements OnInit{
   tasks!: ITask[];
   activeTaskIndex: number = 1;
   activeTask!: ITask;
+  editorWriteMode:boolean = true;
 
 
   constructor(private http: HttpClient) { }
@@ -93,6 +94,10 @@ export class AppComponent implements OnInit{
     })
     console.log(this.activeTask);
     console.log(this.tasks)
+  }
+
+  editorWriteModeChange() {
+    this.editorWriteMode = !this.editorWriteMode;
   }
 
 }

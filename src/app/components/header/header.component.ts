@@ -8,9 +8,9 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   @Input() title!: string;
-  @Output('taskTitleChange') eventEmitter: EventEmitter<any> = new EventEmitter<any>();
-
-  constructor() { }
+  @Input() editorWriteMode!:boolean;
+  @Output('taskTitleChange') taskEmitter: EventEmitter<any> = new EventEmitter<any>();
+  @Output('editorModeChange') editorEmitter: EventEmitter<any> = new EventEmitter<any>();
 
   ngOnInit(): void {
   }
@@ -19,8 +19,11 @@ export class HeaderComponent implements OnInit {
     console.log(title);
   }
 
-  onChange(event: any) {
-    this.eventEmitter.emit(event.target.value)
+  onTitleChange(event: any) {
+    this.taskEmitter.emit(event.target.value)
   }
 
+  onModeChange() {
+    this.editorEmitter.emit(!this.editorWriteMode);
+  }
 }
