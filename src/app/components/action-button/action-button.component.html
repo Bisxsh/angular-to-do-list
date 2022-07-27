@@ -1,3 +1,21 @@
-<div class="button--container">
-  <img class="button--image" src="assets/images/options.png" alt="actions button" />
+<div class="buttons--container">
+  <app-delete-all-button
+    [class]="'buttons--button-2 ' + (showMenu ? '' : 'hidden')"
+  ></app-delete-all-button>
+  <app-add-task-button
+    [class]="'buttons--button-3 ' + (showMenu ? '' : 'hidden')"
+    (click)="addNote()"
+  ></app-add-task-button>
+  <app-info-button
+    [class]="'buttons--button-4 ' + (showMenu ? '' : 'hidden')"
+  ></app-info-button>
+
+  <div
+    class="button--container buttons--button-1"
+    (click)="toggleMenu()"
+
+  >
+    <img class="button--image" src="assets/images/options.png" alt="actions button" />
+  </div>
+
 </div>

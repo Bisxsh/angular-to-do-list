@@ -12,6 +12,13 @@ import {FormsModule} from "@angular/forms";
 import { EditorComponent } from './components/editor/editor.component';
 import {SideMenuTaskComponent} from "./components/side-bar/sub-components/side-menu-task/side-menu-task.component";
 import { ActionButtonComponent } from './components/action-button/action-button.component';
+import {
+  DeleteAllButtonComponent
+} from "./components/action-button/sub-components/delete-all-button/delete-all-button.component";
+import {
+  AddTaskButtonComponent
+} from "./components/action-button/sub-components/add-task-button/add-task-button.component";
+import {InfoButtonComponent} from "./components/action-button/sub-components/info-button/info-button.component";
 
 @NgModule({
   declarations: [
@@ -22,7 +29,10 @@ import { ActionButtonComponent } from './components/action-button/action-button.
     SideBarComponent,
     HeaderComponent,
     EditorComponent,
-    ActionButtonComponent
+    ActionButtonComponent,
+    DeleteAllButtonComponent,
+    AddTaskButtonComponent,
+    InfoButtonComponent
   ],
   imports: [
     BrowserModule,

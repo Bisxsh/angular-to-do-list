@@ -29,6 +29,6 @@
   position: absolute;
   bottom: 1.5vw;
   right: 1.5vw;
-  width: clamp(60px, 100%, 70px);
-  height: clamp(60px, 100%, 70px);
+  width: clamp(9vw, 100%, 10px);
+  height: clamp(9vw, 100%, 10px);
 }
