@@ -92,12 +92,21 @@ export class AppComponent implements OnInit{
       }
       return t;
     })
-    console.log(this.activeTask);
-    console.log(this.tasks)
   }
 
   editorWriteModeChange() {
     this.editorWriteMode = !this.editorWriteMode;
+  }
+
+  deleteTask(data: number) {
+    console.log(this.tasks);
+    this.tasks.splice(data-1, 1);
+    this.tasks = this.tasks.map(t => {
+      return {
+        ...t,
+        id: this.tasks.indexOf(t)+1
+      }
+    })
   }
 
 }

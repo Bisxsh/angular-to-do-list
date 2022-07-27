@@ -2,7 +2,8 @@
   <app-side-bar
     class="app--side-bar"
     [tasks]="tasks"
-    (activeChanged)="activeTaskChanged($event)">
+    (activeChanged)="activeTaskChanged($event)"
+    (deleteTask)="deleteTask($event)">
 
   </app-side-bar>
 
@@ -15,6 +16,8 @@
       (editorModeChange)="editorWriteModeChange()"
       (taskTitleChange)="activeTaskTitleChanged($event)"
     ></app-header>
+
+    <hr class="app--separator"/>
 
     <div class="app--editor-container">
       <app-editor

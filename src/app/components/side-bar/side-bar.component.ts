@@ -14,6 +14,7 @@ export class SideBarComponent {
 
   @Input() tasks: ITask[] | undefined;
   @Output('activeChanged') eventEmitter: EventEmitter<any> = new EventEmitter<any>();
+  @Output('deleteTask') deleteEmitter: EventEmitter<any> = new EventEmitter<any>();
 
   taskClickHandler(data: any) {
     if (data === this.active) return;
@@ -24,6 +25,10 @@ export class SideBarComponent {
 
   activeTaskChanged() {
     this.eventEmitter.emit(this.active);
+  }
+
+  deleteTaskHandler(data: any) {
+    this.deleteEmitter.emit(data)
   }
 
 }

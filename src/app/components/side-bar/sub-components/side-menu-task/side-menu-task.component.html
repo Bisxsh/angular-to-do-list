@@ -5,5 +5,6 @@
   [iconName]="iconName"
   [showDeleteIcon]="active"
   [backgroundActive] = "active"
-  (click)="taskClickHandler()">
+  (click)="taskClickHandler()"
+  (deleteTask)="deleteTask()">
 </app-side-menu-option>

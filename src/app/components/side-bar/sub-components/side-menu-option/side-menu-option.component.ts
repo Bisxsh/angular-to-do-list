@@ -1,4 +1,4 @@
-import {Component, Input } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-side-menu-option',
@@ -18,4 +18,10 @@ export class SideMenuOptionComponent {
   }
 
   iconPath = '';
+
+  @Output('deleteTask') eventEmitter: EventEmitter<any> = new EventEmitter();
+
+  deleteTask() {
+    this.eventEmitter.emit();
+  }
 }

@@ -5,7 +5,9 @@
     {{label}}
   </p>
 
-  <img [class]="'side-menu-option--delete ' + (showDeleteIcon ? '' : 'side-menu-option--hidden' )"
-       src="assets/images/delete_task.png"
-       alt="delete"/>
+  <img
+    [class]="'side-menu-option--delete ' + (showDeleteIcon ? '' : 'side-menu-option--hidden' )"
+    src="assets/images/delete_task.png"
+    alt="delete"
+    (click)="deleteTask()"/>
 </div>

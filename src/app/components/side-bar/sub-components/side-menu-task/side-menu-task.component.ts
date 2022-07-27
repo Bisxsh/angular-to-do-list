@@ -20,9 +20,14 @@ export class SideMenuTaskComponent implements OnChanges{
     this.iconName = this.getIconName();
   }
 
-  @Output('taskClicked') eventEmitter: EventEmitter<any> = new EventEmitter<any>();
+  @Output('taskClicked') taskEmitter: EventEmitter<any> = new EventEmitter<any>();
+  @Output('deleteClicked') deleteEmitter: EventEmitter<any> = new EventEmitter<any>();
 
   taskClickHandler() {
-    this.eventEmitter.emit(this.id);
+    this.taskEmitter.emit(this.id);
+  }
+
+  deleteTask() {
+    this.deleteEmitter.emit(this.id);
   }
 }

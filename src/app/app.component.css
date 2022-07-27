@@ -16,6 +16,10 @@
   padding: 30px 30px 0 30px;
 }
 
+.app--separator {
+  width: 96%;
+}
+
 .app--editor {
   flex-grow: 1;
 }

@@ -24,6 +24,7 @@
         [label]="task.title"
         [id]="task.id"
         (taskClicked)="taskClickHandler($event)"
+        (deleteClicked)="deleteTaskHandler($event)"
       ></app-side-menu-task>
     </div>
 
