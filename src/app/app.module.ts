@@ -10,6 +10,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component'
 import {FormsModule} from "@angular/forms";
+import { EditorComponent } from './components/editor/editor.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {FormsModule} from "@angular/forms";
     SideMenuTaskComponent,
     SideMenuFilterComponent,
     SideBarComponent,
-    HeaderComponent
+    HeaderComponent,
+    EditorComponent
   ],
   imports: [
     BrowserModule,

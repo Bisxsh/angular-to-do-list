@@ -1,0 +1,5 @@
+.editor--container {
+  height: 100%;
+  border: 1px solid var(--primary-colour);
+  border-radius: 24px;
+}
