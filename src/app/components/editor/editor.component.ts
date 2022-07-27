@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import {ITask} from "../../../interfaces/ITask";
+import * as Showdown from "showdown";
 
 @Component({
   selector: 'app-editor',
@@ -8,10 +9,19 @@ import {ITask} from "../../../interfaces/ITask";
 })
 export class EditorComponent implements OnChanges {
 
-  write: boolean = true;
   @Input() activeTask!: ITask;
-  taskContent: String = (this.activeTask) ? this.activeTask.description : "";
   @Output('taskContentChange') eventEmitter: EventEmitter<any> = new EventEmitter<any>();
+
+  write: boolean = true;
+  taskContent: String = (this.activeTask) ? this.activeTask.description : "";
+  contentTags!: string;
+
+  converter = new Showdown.Converter({
+    tables: true,
+    simplifiedAutoLink: true,
+    strikethrough: true,
+    tasklists: true,
+  })
 
   constructor() { }
 
@@ -26,6 +36,8 @@ export class EditorComponent implements OnChanges {
 
   onChange(event: any) {
     this.eventEmitter.emit(event.target.value);
+    Promise.resolve(this.converter.makeHtml(event.target.value))
+      .then(d => this.contentTags = d);
   }
 
 
