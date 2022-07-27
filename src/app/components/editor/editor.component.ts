@@ -13,7 +13,7 @@ export class EditorComponent implements OnChanges {
   @Input() write!: boolean;
   @Output('taskContentChange') eventEmitter: EventEmitter<any> = new EventEmitter<any>();
 
-  taskContent: String = (this.activeTask) ? this.activeTask.description : "";
+  taskContent: string = (this.activeTask) ? this.activeTask.description : "";
   contentTags!: string;
 
   converter = new Showdown.Converter({
@@ -26,12 +26,17 @@ export class EditorComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.taskContent);
-
+    // console.log(this.taskContent)
     for (let propName in changes) {
       let change = changes[propName];
-      this.taskContent = change.currentValue.description;
+      console.log(change)
+      if (typeof change.currentValue != "boolean") {
+        this.taskContent = change.currentValue.description;
+        Promise.resolve(this.converter.makeHtml(this.taskContent))
+          .then(d => this.contentTags = d);
+      }
     }
+    console.log(this.taskContent)
   }
 
   onChange(event: any) {

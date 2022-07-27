@@ -10,7 +10,9 @@
 
 <ng-template #elseBlock>
 
-  <div class="editor--container" [innerHTML]="contentTags"></div>
+  <div class="editor--container">
+    <div class="editor--preview-container" [innerHTML]="contentTags"></div>
+  </div>
 
 </ng-template>
 
