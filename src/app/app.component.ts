@@ -38,7 +38,7 @@ export class AppComponent implements OnInit{
 
             category: obj.category || "",
             active: (obj.id === 1),
-            description: "# Type your markdown note's title here"
+            description: "# Type your markdown notes here"
           }
           this.tasks.push(t);
 
