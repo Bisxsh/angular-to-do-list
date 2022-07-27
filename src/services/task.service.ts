@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
 import {ITask} from "../interfaces/ITask";
+import {filters} from "../app/components/side-bar/util/Filters";
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +11,10 @@ export class TaskService{
   private _tasksSource = new BehaviorSubject<ITask[]>([]);
   private _activeTask!: ITask;
   private _activeTaskSource = new BehaviorSubject<ITask>(this._activeTask);
-  private _filteredTasksSource = new BehaviorSubject<ITask[]>([]);
+  private _filtersSource = new BehaviorSubject<IFilter[]>(filters);
   private _filterAppliedSource = new BehaviorSubject<number>(0);
 
-  filteredTasks = this._filteredTasksSource.asObservable();
+  filters = this._filtersSource.asObservable();
   tasks = this._tasksSource.asObservable();
   activeTask = this._activeTaskSource.asObservable();
   filterApplied = this._filterAppliedSource.asObservable();
@@ -26,8 +27,8 @@ export class TaskService{
     this._activeTaskSource.next(task);
   }
 
-  changeFilteredTasks(tasks: ITask[]) {
-    this._filteredTasksSource.next(tasks);
+  changeFilters(filters: IFilter[]) {
+    this._filtersSource.next(filters);
   }
 
   changeFilterApplied(filter: number) {

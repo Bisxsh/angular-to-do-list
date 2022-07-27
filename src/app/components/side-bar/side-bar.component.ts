@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {Filters, filters} from './util/Filters'
+import {Filters} from './util/Filters'
 import { ITask } from "../../../interfaces/ITask";
 import {TaskService} from "../../../services/task.service";
 
@@ -10,7 +10,7 @@ import {TaskService} from "../../../services/task.service";
 })
 export class SideBarComponent implements OnInit{
 
-  filters: IFilter[] = filters;
+  filters!: IFilter[];
   activeTask!: ITask;
   active!: number;
   tasks!: ITask[];
@@ -24,6 +24,7 @@ export class SideBarComponent implements OnInit{
     this.service.tasks.subscribe(t => this.tasks = t);
     this.service.activeTask.subscribe(t => this.activeTask = t);
     this.service.filterApplied.subscribe(f => this.filterApplied = f);
+    this.service.filters.subscribe(f => this.filters = f);
   }
 
   taskClickHandler(data: any) {

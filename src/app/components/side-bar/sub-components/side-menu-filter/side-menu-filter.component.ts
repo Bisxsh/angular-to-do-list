@@ -13,10 +13,26 @@ export class SideMenuFilterComponent {
   @Input() active!: boolean;
   @Input() id!:number;
 
-  constructor(private service: TaskService) { }
+  private _filters!: IFilter[];
+
+  constructor(private service: TaskService) {
+    this.service.filters.subscribe(f => this._filters = f);
+  }
 
   setFilterApplied() {
     this.service.changeFilterApplied(this.id);
+    let temp = this._filters.map(f => {
+      if (f.active && f.id!=this.id) return {
+        ...f,
+        active: false
+      }
+      if (f.id == this.id) return {
+        ...f,
+        active:true
+      }
+      return f;
+    })
+    this.service.changeFilters(temp);
   }
 
 }
