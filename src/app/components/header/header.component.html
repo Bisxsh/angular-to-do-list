@@ -3,7 +3,8 @@
   <input
     class="header--title"
     type="text"
-    [(ngModel)]="title"/>
+    [(ngModel)]="title"
+    (change)="onChange($event)">
 
   <div class="header--slider-container">
 

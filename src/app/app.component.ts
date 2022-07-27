@@ -68,4 +68,16 @@ export class AppComponent implements OnInit{
     })
   }
 
+  activeTaskTitleChanged(data: any) {
+    this.tasks = this.tasks.map(t => {
+      if (t.id == this.activeTaskIndex) {
+        return {
+          ...t,
+          title: data
+        }
+      }
+      return t;
+    })
+  }
+
 }

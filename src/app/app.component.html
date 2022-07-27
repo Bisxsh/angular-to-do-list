@@ -7,9 +7,13 @@
   </app-side-bar>
 
   <div class="app--main-content">
-    <app-header class="app--header"
+
+    <app-header
+      class="app--header"
       [title]="activeTask.title"
+      (taskTitleChange)="activeTaskTitleChanged($event)"
     ></app-header>
+
   </div>
 </div>
 

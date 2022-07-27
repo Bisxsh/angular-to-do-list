@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -8,10 +8,19 @@ import {Component, Input, OnInit} from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   @Input() title!: string;
+  @Output('taskTitleChange') eventEmitter: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  titleChangeHandler(title: any) {
+    console.log(title);
+  }
+
+  onChange(event: any) {
+    this.eventEmitter.emit(event.target.value)
   }
 
 }
