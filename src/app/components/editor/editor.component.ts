@@ -94,6 +94,13 @@ export class EditorComponent implements OnChanges, OnInit, AfterViewInit {
       text.substring(lastWordIndexEnd);
   }
 
+  insertAtStartOfLine(cursorStart: number, cursorEnd: number, text:string, string: string) {
+    let index = text.substring(0, cursorStart).lastIndexOf('\n')+1;
+    return text.substring(0, index) + string +
+      text.substring(index);
+
+  }
+
   insertMarkdown(button: number) {
     console.log("*************");
     if (!this.write) return;
@@ -104,10 +111,9 @@ export class EditorComponent implements OnChanges, OnInit, AfterViewInit {
     let text = textArea.value;
 
 
-
     switch (button) {
       case EditorButtonMappings.HEADING:
-        this.taskContent = '#' + text;
+        this.taskContent = this.insertAtStartOfLine(start, end, text, '# ')
         break;
 
       case EditorButtonMappings.ITALIC:
@@ -117,6 +123,14 @@ export class EditorComponent implements OnChanges, OnInit, AfterViewInit {
       case EditorButtonMappings.STRIKETHROUGH:
         this.taskContent = this.surroundWithString(start, end, text, '~~');
         break;
+
+      case EditorButtonMappings.BOLD:
+        this.taskContent = this.surroundWithString(start, end, text, '**');
+        break;
+
+
+      case EditorButtonMappings.BULLET_LIST:
+        // this.tas
     }
     this.updateMarkdown(this.taskContent);
   }
