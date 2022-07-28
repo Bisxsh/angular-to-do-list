@@ -77,6 +77,23 @@ export class EditorComponent implements OnChanges, OnInit, AfterViewInit {
     this.write = !this.write;
   }
 
+  surroundWithString(cursorStart: number, cursorEnd: number, text:string, string: string) {
+    if (cursorStart != cursorEnd) {
+      //Section highlighted
+      return text.substring(0, cursorStart) + string +
+        text.substring(cursorStart, cursorEnd) + string +
+        text.substring(cursorEnd);
+    }
+
+    //Gets the start and end position of the word the cursor is in (if present)
+    let lastWordIndexStart = Math.max(text.substring(0, cursorStart).lastIndexOf(' ')+1, 0)
+    let lastWordIndexEnd = Math.max(text.substring(cursorStart).indexOf(' ')+text.indexOf(text.substring(cursorStart)), 0) || text.length
+
+    return text.substring(0, lastWordIndexStart) + string +
+      text.substring(lastWordIndexStart, lastWordIndexEnd) + string +
+      text.substring(lastWordIndexEnd);
+  }
+
   insertMarkdown(button: number) {
     console.log("*************");
     if (!this.write) return;
@@ -85,8 +102,8 @@ export class EditorComponent implements OnChanges, OnInit, AfterViewInit {
     let start = textArea.selectionStart;
     let end = textArea.selectionEnd;
     let text = textArea.value;
-    let lastWordIndexStart = Math.max(text.substring(0, start).lastIndexOf(' ')+1, 0)
-    let lastWordIndexEnd = Math.max(text.substring(start).indexOf(' ')+text.indexOf(text.substring(start)), 0) || text.length
+
+
 
     switch (button) {
       case EditorButtonMappings.HEADING:
@@ -94,20 +111,16 @@ export class EditorComponent implements OnChanges, OnInit, AfterViewInit {
         break;
 
       case EditorButtonMappings.ITALIC:
-        //Section highlighted
-        if (start!=end) {
-          this.taskContent = text.substring(0, start) + '*' + text.substring(start, end) + '*' + text.substring(end)
-          break;
-        }
+        this.taskContent = this.surroundWithString(start, end, text, '*');
+        break;
 
-        //Italicise current word
-        console.log("2: "+lastWordIndexStart, lastWordIndexEnd);
-        this.taskContent = text.substring(0, lastWordIndexStart) + '*' +
-          text.substring(lastWordIndexStart, lastWordIndexEnd) + '*' +
-          text.substring(lastWordIndexEnd)
+      case EditorButtonMappings.STRIKETHROUGH:
+        this.taskContent = this.surroundWithString(start, end, text, '~~');
         break;
     }
     this.updateMarkdown(this.taskContent);
   }
+
+
 
 }
