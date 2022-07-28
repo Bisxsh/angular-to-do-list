@@ -63,12 +63,12 @@ export class EditorComponent implements OnChanges, OnInit, AfterViewInit {
   }
 
   onChange(event: any) {
-    this.eventEmitter.emit(event.target.value);
-    this.updateMarkdown(event.target.value)
+    this.updatedStoredText(event.target.value);
   }
 
-  updateMarkdown(test: string) {
-    Promise.resolve(this.converter.makeHtml(test))
+  updatedStoredText(text: string) {
+    this.eventEmitter.emit(text);
+    Promise.resolve(this.converter.makeHtml(text))
       .then(d => this.contentTags = d);
   }
 
@@ -77,7 +77,7 @@ export class EditorComponent implements OnChanges, OnInit, AfterViewInit {
     this.write = !this.write;
   }
 
-  surroundWithString(cursorStart: number, cursorEnd: number, text:string, string: string) {
+  surroundWithString(cursorStart: number, cursorEnd: number, text:string, string:string, append?:string, include?:string) {
     if (cursorStart != cursorEnd) {
       let highlightedSub = text.substring(cursorStart, cursorEnd);
       let endSub = text.substring(cursorEnd);
@@ -92,16 +92,16 @@ export class EditorComponent implements OnChanges, OnInit, AfterViewInit {
         highlightedSub;
 
       //Section highlighted
-      return text.substring(0, cursorStart) + string + highlightedSub + string + endSub;
+      return text.substring(0, cursorStart) + string + highlightedSub + (append || string) + endSub;
     }
 
     //Gets the start and end position of the word the cursor is in (if present)
     let lastWordIndexStart = Math.max(text.substring(0, cursorStart).lastIndexOf(' ')+1, 0)
     let lastWordIndexEnd = Math.max(text.substring(cursorStart).indexOf(' ')+text.indexOf(text.substring(cursorStart)), 0) || text.length
+    let startSub = text.substring(0, (include) ? lastWordIndexEnd : lastWordIndexStart);
+    let middleSub = include || text.substring(lastWordIndexStart, lastWordIndexEnd);
 
-    return text.substring(0, lastWordIndexStart) + string +
-      text.substring(lastWordIndexStart, lastWordIndexEnd) + string +
-      text.substring(lastWordIndexEnd);
+    return startSub + string + middleSub + (append || string) + text.substring(lastWordIndexEnd);
   }
 
   insertAtStartOfLine(cursorStart: number, cursorEnd: number, text:string, string: string) {
@@ -169,10 +169,33 @@ export class EditorComponent implements OnChanges, OnInit, AfterViewInit {
 
       case EditorButtonMappings.NUMBER_LIST:
         this.taskContent = this.insertNumberedPoints(start, end, text);
+        break;
 
+      case EditorButtonMappings.CHECK_LIST:
+        this.taskContent = this.insertAtStartOfLine(start, end, text, '- [] ');
+        break;
+
+
+      case EditorButtonMappings.LINK:
+        this.taskContent = this.surroundWithString(start, end, text, '[', '](url)')
+        break;
+
+      case EditorButtonMappings.QUOTES:
+        this.taskContent = this.insertAtStartOfLine(start, end, text, '> ');
+        break;
+
+      case EditorButtonMappings.CODE:
+        this.taskContent = this.surroundWithString(start, end, text, '```\n');
+        break;
+
+      case EditorButtonMappings.PHOTO:
+        this.taskContent = this.surroundWithString(start, end, text, '![alt](', ')', 'image link');
+        break;
     }
-    this.updateMarkdown(this.taskContent);
+    this.updatedStoredText(this.taskContent);
   }
+
+
 
 
 
