@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   EventEmitter,
@@ -6,7 +7,7 @@ import {
   OnChanges,
   OnInit,
   Output,
-  SimpleChanges
+  SimpleChanges, ViewChild
 } from '@angular/core';
 import {ITask} from "../../../interfaces/ITask";
 import * as Showdown from "showdown";
@@ -18,17 +19,17 @@ import {EditorButtonMappings, LIST_BUTTONS, OTHER_BUTTONS, TEXT_BUTTONS} from ".
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.css']
 })
-export class EditorComponent implements OnChanges, OnInit {
+export class EditorComponent implements OnChanges, OnInit, AfterViewInit {
 
-  constructor(private service: TaskService, private elementRef: ElementRef) { }
+  constructor(private service: TaskService) { }
 
   @Input() activeTask!: ITask;
   @Input() write!: boolean;
   @Output('taskContentChange') eventEmitter: EventEmitter<any> = new EventEmitter<any>();
+  @ViewChild('editorInput') editorInput!: ElementRef;
 
   taskContent: string = (this.activeTask) ? this.activeTask.description : "";
   contentTags!: string;
-  textArea!: any;
 
   textButtons = TEXT_BUTTONS;
   listButtons = LIST_BUTTONS;
@@ -44,7 +45,6 @@ export class EditorComponent implements OnChanges, OnInit {
   tasks!:ITask[];
   ngOnInit(): void {
     this.service.tasks.subscribe(t => this.tasks = t);
-    this.getDOMElement();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -58,28 +58,37 @@ export class EditorComponent implements OnChanges, OnInit {
     }
   }
 
-  getDOMElement() {
-    this.textArea = (<HTMLElement>this.elementRef.nativeElement).querySelector('.editor--write-input');
+  ngAfterViewInit() {
+    console.log(this.editorInput.nativeElement.value);
   }
 
   onChange(event: any) {
     this.eventEmitter.emit(event.target.value);
-    Promise.resolve(this.converter.makeHtml(event.target.value))
+    this.updateMarkdown(event.target.value)
+  }
+
+  updateMarkdown(test: string) {
+    Promise.resolve(this.converter.makeHtml(test))
       .then(d => this.contentTags = d);
   }
+
 
   toggleWrite() {
     this.write = !this.write;
   }
 
   insertMarkdown(button: number) {
-    console.log(this.textArea);
-    let start = this.textArea.selectionStart;
-    // let end = this.textArea.selectionEnd;
-    let text = this.textArea.value;
+    if (!this.write) return;
+
+    let textArea = this.editorInput.nativeElement;
+    let start = textArea.selectionStart;
+    let end = textArea.selectionEnd;
+    let text = textArea.value;
+
     switch (button) {
       case EditorButtonMappings.HEADING:
-        this.textArea.value = text.substring(0, Math.max(start-4, 0)) + text.substring(Math.max(start-4, 0))
+        this.taskContent = '#' + text;
+        this.updateMarkdown(this.taskContent);
         return;
     }
   }
