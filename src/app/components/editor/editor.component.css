@@ -1,3 +1,10 @@
+.editor--main-container {
+  height: 100%;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
 .editor--container {
   height: 100%;
   display: flex;
@@ -5,15 +12,12 @@
   overflow-y: hidden;
 }
 
-.editor--container > textarea {
-  resize: none;
-}
-
 .editor--write-input {
   margin: 15px;
   font-size: 1.3rem;
   width: 97%;
   height: 100%;
+  resize: none;
 }
 
 .editor--preview-container {

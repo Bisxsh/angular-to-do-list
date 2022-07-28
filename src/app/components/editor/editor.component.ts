@@ -79,10 +79,20 @@ export class EditorComponent implements OnChanges, OnInit, AfterViewInit {
 
   surroundWithString(cursorStart: number, cursorEnd: number, text:string, string: string) {
     if (cursorStart != cursorEnd) {
+      let highlightedSub = text.substring(cursorStart, cursorEnd);
+      let endSub = text.substring(cursorEnd);
+
+      if (highlightedSub.charAt(highlightedSub.length-1) == ' ') {
+        //Double-clicking a word can highlight the space that occurs after, ignore this when wrapping
+        highlightedSub = highlightedSub.substring(0, highlightedSub.length-1);
+        endSub = ' ' + endSub;
+      }
+      highlightedSub = (highlightedSub.charAt(highlightedSub.length-1) == ' ') ?
+        highlightedSub.substring(0, highlightedSub.length-2) :
+        highlightedSub;
+
       //Section highlighted
-      return text.substring(0, cursorStart) + string +
-        text.substring(cursorStart, cursorEnd) + string +
-        text.substring(cursorEnd);
+      return text.substring(0, cursorStart) + string + highlightedSub + string + endSub;
     }
 
     //Gets the start and end position of the word the cursor is in (if present)
