@@ -5,33 +5,8 @@
 }
 
 .header--title {
-  margin-left: 30px;
+  margin: 15px 15px 15px 30px;
   font-size: 30px;
   line-height: 55px;
-}
-
-.header--slider-container {
-  margin: 20px;
-  display: flex;
-  background: #EFEFEF;
-  border: 3px solid #EFEFEF;
-  border-radius: 24px;
-  cursor: pointer;
-}
-
-.header--slider-write-container, .header--slider-preview-container {
-  border-radius: 24px;
-  padding: 4px;
-}
-
-.filled {
-  background: #FFFFFF;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.13);
-}
-
-.header--slider-write, .header--slider-preview {
-  font-size: 20px;
-  line-height: 27px;
-  margin: 0 30px;
 }
 

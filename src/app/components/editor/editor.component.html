@@ -1,19 +1,65 @@
-<div
-  [class]="'editor--container '+(tasks.length ? '' : 'hidden')"
-  *ngIf="write; else elseBlock" xmlns="http://www.w3.org/1999/html">
+<div>
+  <hr />
+
+  <div class="editor--toolbar">
+    <div class="editor--toolbar-group">
+      <img
+        *ngFor="let button of textButtons"
+        [src]="'assets/images/editor/'+button.iconName"
+        [alt]="button.alt"
+        (click)="insertMarkdown(button.id)"/>
+    </div>
+    <div class="editor--toolbar-group">
+      <img
+        *ngFor="let button of listButtons"
+        [src]="'assets/images/editor/'+button.iconName"
+        [alt]="button.alt"
+        (click)="insertMarkdown(button.id)"/>
+    </div>
+    <div class="editor--toolbar-group">
+      <img
+        *ngFor="let button of otherButtons"
+        [src]="'assets/images/editor/'+button.iconName"
+        [alt]="button.alt"
+        (click)="insertMarkdown(button.id)"/>
+    </div>
+
+    <div class="header--slider-container" (click)="toggleWrite()">
+
+      <div [class]="'header--slider-write-container '+ (write ? 'filled' : '')">
+        <p class="header--slider-write">Write</p>
+      </div>
+
+      <div [class]="'header--slider-preview-container '+ (!write ? 'filled' : '')">
+        <p class="header--slider-preview">Preview</p>
+      </div>
+
+    </div>
+  </div>
+
+  <hr/>
+
+
+  <div
+    [class]="'editor--container '+(tasks.length ? '' : 'hidden')"
+    *ngIf="write; else elseBlock" xmlns="http://www.w3.org/1999/html">
+
   <textarea
     class="editor--write-input"
     type="text"
     placeholder="Task notes..."
     [(ngModel)]="taskContent"
     (change)="onChange($event)"></textarea>
-</div>
-
-<ng-template #elseBlock>
-
-  <div class="editor--container">
-    <div class="editor--preview-container" [innerHTML]="contentTags"></div>
   </div>
 
-</ng-template>
+  <ng-template #elseBlock>
+
+    <div class="editor--container">
+      <div class="editor--preview-container" [innerHTML]="contentTags"></div>
+    </div>
+
+  </ng-template>
+
+</div>
+
 

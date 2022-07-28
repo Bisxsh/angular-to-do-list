@@ -7,16 +7,4 @@
     [(ngModel)]="title"
     (change)="onTitleChange($event)">
 
-  <div class="header--slider-container" (click)="onModeChange()">
-
-    <div [class]="'header--slider-write-container '+ (editorWriteMode ? 'filled' : '')">
-      <p class="header--slider-write">Write</p>
-    </div>
-
-    <div [class]="'header--slider-preview-container '+ (!editorWriteMode ? 'filled' : '')">
-      <p class="header--slider-preview">Preview</p>
-    </div>
-
-  </div>
-
 </div>

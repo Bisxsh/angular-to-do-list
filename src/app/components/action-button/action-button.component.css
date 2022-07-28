@@ -52,7 +52,6 @@
 /*Prompt window*/
 
 .button--prompt {
-  z-index: -1;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -108,7 +107,6 @@
 
 /*Info popup*/
 .button--info-container {
-  z-index: 1;
   margin: auto;
   width: 30vw;
   height: 30vh;
