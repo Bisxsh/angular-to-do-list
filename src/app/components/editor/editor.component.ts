@@ -117,6 +117,24 @@ export class EditorComponent implements OnChanges, OnInit, AfterViewInit {
     return text.substring(0, startOfLine-1) + section + text.substring(cursorEnd);
   }
 
+  insertNumberedPoints(cursorStart: number, cursorEnd: number, text:string) {
+    if (cursorStart == cursorEnd) {
+      return this.insertAtStartOfLine(cursorStart, cursorEnd, text, ' 1. ');
+    }
+
+    let startOfLine = text.substring(0, cursorStart).lastIndexOf('\n');
+    let array = text.substring(startOfLine, cursorEnd).split('\n');
+    let index:number = 0;
+    console.log(array);
+    array = array.filter(t => t!='')
+      .map(t => {
+        index++;
+        return '\n'+index+'. ' + t;
+      })
+    console.log(array);
+    return text.substring(0, startOfLine) + array.join('') + text.substring(cursorEnd);
+  }
+
   insertMarkdown(button: number) {
     console.log("*************");
     if (!this.write) return;
@@ -150,6 +168,7 @@ export class EditorComponent implements OnChanges, OnInit, AfterViewInit {
         break;
 
       case EditorButtonMappings.NUMBER_LIST:
+        this.taskContent = this.insertNumberedPoints(start, end, text);
 
     }
     this.updateMarkdown(this.taskContent);
