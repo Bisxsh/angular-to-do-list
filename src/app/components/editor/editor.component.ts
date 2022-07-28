@@ -185,7 +185,7 @@ export class EditorComponent implements OnChanges, OnInit, AfterViewInit {
         break;
 
       case EditorButtonMappings.CODE:
-        this.taskContent = this.surroundWithString(start, end, text, '```\n');
+        this.taskContent = this.surroundWithString(start, end, text, '\n```\n');
         break;
 
       case EditorButtonMappings.PHOTO:
