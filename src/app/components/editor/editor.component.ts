@@ -105,10 +105,16 @@ export class EditorComponent implements OnChanges, OnInit, AfterViewInit {
   }
 
   insertAtStartOfLine(cursorStart: number, cursorEnd: number, text:string, string: string) {
-    let index = text.substring(0, cursorStart).lastIndexOf('\n')+1;
-    return text.substring(0, index) + string +
-      text.substring(index);
+    let startOfLine = text.substring(0, cursorStart).lastIndexOf('\n')+1;
+    if (cursorStart == cursorEnd) {
+      return text.substring(0, startOfLine) + string +
+        text.substring(startOfLine);
+    }
 
+    //Highlighted section, append to start of every line included
+    let section = text.substring(startOfLine-1, cursorEnd);
+    section = section.replace(/\n/g, '\n'+string)
+    return text.substring(0, startOfLine-1) + section + text.substring(cursorEnd);
   }
 
   insertMarkdown(button: number) {
@@ -140,7 +146,11 @@ export class EditorComponent implements OnChanges, OnInit, AfterViewInit {
 
 
       case EditorButtonMappings.BULLET_LIST:
-        // this.tas
+        this.taskContent = this.insertAtStartOfLine(start, end, text, '- ')
+        break;
+
+      case EditorButtonMappings.NUMBER_LIST:
+
     }
     this.updateMarkdown(this.taskContent);
   }
