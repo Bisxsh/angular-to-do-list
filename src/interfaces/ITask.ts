@@ -11,7 +11,7 @@ export interface ITask {
 
 export const BLANK_TASK = {
   id: 0,
-  title: "Untitled Note",
+  title: "Untitled Task",
   userId: 1,
   completed: false,
 

@@ -53,11 +53,12 @@ export const LIST_BUTTONS = [
     iconName: "number_list.png",
     alt: "number_list"
   },
-  {
-    id: 6,
-    iconName: "check_list.png",
-    alt: "check_list"
-  }
+  //Does not work with markdown library
+  // {
+  //   id: 6,
+  //   iconName: "check_list.png",
+  //   alt: "check_list"
+  // }
 ]
 
 export const OTHER_BUTTONS = [

@@ -74,7 +74,7 @@ export class EditorComponent implements OnChanges, OnInit, AfterViewInit {
 
 
   toggleWrite() {
-    this.write = !this.write;
+    if (this.tasks.length) this.write = !this.write;
   }
 
   surroundWithString(cursorStart: number, cursorEnd: number, text:string, string:string, append?:string, include?:string) {
@@ -171,9 +171,10 @@ export class EditorComponent implements OnChanges, OnInit, AfterViewInit {
         this.taskContent = this.insertNumberedPoints(start, end, text);
         break;
 
-      case EditorButtonMappings.CHECK_LIST:
-        this.taskContent = this.insertAtStartOfLine(start, end, text, '- [] ');
-        break;
+        //Does not work with markdown library
+      // case EditorButtonMappings.CHECK_LIST:
+      //   this.taskContent = this.insertAtStartOfLine(start, end, text, '-[] ');
+      //   break;
 
 
       case EditorButtonMappings.LINK:
