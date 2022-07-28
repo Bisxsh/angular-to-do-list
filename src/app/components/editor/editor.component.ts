@@ -78,19 +78,36 @@ export class EditorComponent implements OnChanges, OnInit, AfterViewInit {
   }
 
   insertMarkdown(button: number) {
+    console.log("*************");
     if (!this.write) return;
 
     let textArea = this.editorInput.nativeElement;
     let start = textArea.selectionStart;
     let end = textArea.selectionEnd;
     let text = textArea.value;
+    let lastWordIndexStart = Math.max(text.substring(0, start).lastIndexOf(' ')+1, 0)
+    let lastWordIndexEnd = Math.max(text.substring(start).indexOf(' ')+text.indexOf(text.substring(start)), 0) || text.length
 
     switch (button) {
       case EditorButtonMappings.HEADING:
         this.taskContent = '#' + text;
-        this.updateMarkdown(this.taskContent);
-        return;
+        break;
+
+      case EditorButtonMappings.ITALIC:
+        //Section highlighted
+        if (start!=end) {
+          this.taskContent = text.substring(0, start) + '*' + text.substring(start, end) + '*' + text.substring(end)
+          break;
+        }
+
+        //Italicise current word
+        console.log("2: "+lastWordIndexStart, lastWordIndexEnd);
+        this.taskContent = text.substring(0, lastWordIndexStart) + '*' +
+          text.substring(lastWordIndexStart, lastWordIndexEnd) + '*' +
+          text.substring(lastWordIndexEnd)
+        break;
     }
+    this.updateMarkdown(this.taskContent);
   }
 
 }
