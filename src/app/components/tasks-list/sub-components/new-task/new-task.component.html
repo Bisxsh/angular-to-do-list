@@ -1,3 +1,6 @@
 <div class="new-task--container">
-  <input class="new-task--input" placeholder="Write a new task...">
+  <input
+    class="new-task--input"
+    placeholder="Write a new task..."
+  (keyup.enter)="saveTask($event)">
 </div>

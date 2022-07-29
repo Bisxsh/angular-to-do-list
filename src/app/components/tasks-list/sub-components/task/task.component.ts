@@ -40,10 +40,6 @@ export class TaskComponent implements OnInit {
     return taskD.toLocaleDateString();
   }
 
-  getPriority() {
-
-  }
-
   toggleTaskCompleted() {
     this.service.changeTasks(toggleCompleted(this.tasks, this.task));
   }
