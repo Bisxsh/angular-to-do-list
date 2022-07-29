@@ -1,0 +1,35 @@
+.task--container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #F7F5F5;
+  border-radius: 20px;
+  width: auto;
+  padding: 20px;
+  margin: 20px 140px;
+}
+
+.task--left, .task--right {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.task--right > * {
+  margin-inline: 10px;
+}
+
+.task--checkbox {
+  margin-left: 20px;
+  margin-right: 15px;
+}
+
+.task--checkbox {
+  aspect-ratio: 1;
+  width: 40px;
+  height: 40px;
+}
+
+.task--priority {
+  width: 52px;
+}

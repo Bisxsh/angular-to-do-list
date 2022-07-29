@@ -19,6 +19,8 @@ import {
   AddTaskButtonComponent
 } from "./components/action-button/sub-components/add-task-button/add-task-button.component";
 import {InfoButtonComponent} from "./components/action-button/sub-components/info-button/info-button.component";
+import { TasksListComponent } from './components/tasks-list/tasks-list.component';
+import { TaskComponent } from './components/tasks-list/sub-components/task/task.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import {InfoButtonComponent} from "./components/action-button/sub-components/inf
     ActionButtonComponent,
     DeleteAllButtonComponent,
     AddTaskButtonComponent,
-    InfoButtonComponent
+    InfoButtonComponent,
+    TasksListComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,

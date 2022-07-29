@@ -1,34 +1,37 @@
-<div class="app--container">
-  <app-side-bar
-    class="app--side-bar">
+<app-task></app-task>
 
-  </app-side-bar>
 
-  <div class="app--main-content">
+<!--<div class="app&#45;&#45;container">-->
+<!--  <app-side-bar-->
+<!--    class="app&#45;&#45;side-bar">-->
 
-    <app-header
-      class="app--header"
-      [editorWriteMode]="editorWriteMode"
-      [title]="(activeTask && activeTask.title) || ''"
-      [showToolbar]="showToolbar"
-      (editorModeChange)="editorWriteModeChange()"
-      (taskTitleChange)="activeTaskTitleChanged($event)"
-      (toolbarToggled)="toggleToolbar()"
-    ></app-header>
+<!--  </app-side-bar>-->
 
-    <div class="app--editor-container">
-      <app-editor
-        class="app--editor"
-        [activeTask]="activeTask"
-        [write]="editorWriteMode"
-        [showToolbar]="showToolbar"
-        (taskContentChange)="activeTaskContentChange($event)"
-      ></app-editor>
-    </div>
+<!--  <div class="app&#45;&#45;main-content">-->
 
-  </div>
+<!--    <app-header-->
+<!--      class="app&#45;&#45;header"-->
+<!--      [editorWriteMode]="editorWriteMode"-->
+<!--      [title]="(activeTask && activeTask.title) || ''"-->
+<!--      [showToolbar]="showToolbar"-->
+<!--      (editorModeChange)="editorWriteModeChange()"-->
+<!--      (taskTitleChange)="activeTaskTitleChanged($event)"-->
+<!--      (toolbarToggled)="toggleToolbar()"-->
+<!--    ></app-header>-->
 
-  <app-action-button class="app--button"></app-action-button>
-</div>
+<!--    <div class="app&#45;&#45;editor-container">-->
+<!--      <app-editor-->
+<!--        class="app&#45;&#45;editor"-->
+<!--        [activeTask]="activeTask"-->
+<!--        [write]="editorWriteMode"-->
+<!--        [showToolbar]="showToolbar"-->
+<!--        (taskContentChange)="activeTaskContentChange($event)"-->
+<!--      ></app-editor>-->
+<!--    </div>-->
+
+<!--  </div>-->
+
+<!--  <app-action-button class="app&#45;&#45;button"></app-action-button>-->
+<!--</div>-->
 
 
