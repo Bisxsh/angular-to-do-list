@@ -7,6 +7,8 @@ export interface ITask {
   category: string,
   active: boolean
   description: string
+  date?: Date;
+  priority?: number
 }
 
 export const BLANK_TASK = {
@@ -17,5 +19,7 @@ export const BLANK_TASK = {
 
   category: "",
   active: true,
-  description: "# Type your markdown notes here"
+  description: "# Type your markdown notes here",
+  date: undefined,
+  priority: undefined
 }

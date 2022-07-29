@@ -2,31 +2,32 @@ export let filters: IFilter[] = [
   {
     id: 0,
     label: 'All Tasks',
-    activeIcon: 'all_tasks_active.png',
-    inactiveIcon: 'all_tasks_inactive.png',
+    activeIcon: 'sidebar/all_tasks_active.png',
+    inactiveIcon: 'sidebar/all_tasks_inactive.png',
     active: true,
   },
 
-  // {
-  //   label: 'Collections',
-  //   activeIcon: 'collections_active.png',
-  //   inactiveIcon: 'collections_inactive.png',
-  //   active: false
-  // },
-
   {
     id: 1,
-    label: 'Completed',
-    activeIcon: 'completed_tasks_active.png',
-    inactiveIcon: 'completed_tasks_inactive.png',
+    label: 'Collections',
+    activeIcon: 'sidebar/collections_active.png',
+    inactiveIcon: 'sidebar/collections_inactive.png',
     active: false
   },
 
   {
     id: 2,
-    label: 'Incomplete',
-    activeIcon: 'incomplete_tasks_active.png',
-    inactiveIcon: 'incomplete_tasks_inactive.png',
+    label: 'Today',
+    activeIcon: 'sidebar/today_active.png',
+    inactiveIcon: 'sidebar/today_inactive.png',
+    active: false
+  },
+
+  {
+    id: 3,
+    label: 'This Week',
+    activeIcon: 'sidebar/week_active.png',
+    inactiveIcon: 'sidebar/week_inactive.png',
     active: false
   },
 

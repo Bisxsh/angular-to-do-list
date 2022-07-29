@@ -42,7 +42,8 @@ export class AppComponent implements OnInit{
 
             category: obj.category || "",
             active: (obj.id === 1),
-            description: "# Type your markdown notes here"
+            description: "# Type your markdown notes here",
+            date: this.getRandomDate()
           }
           this.tasks.push(t);
 
@@ -85,6 +86,13 @@ export class AppComponent implements OnInit{
 
   toggleToolbar() {
     this.showToolbar = !this.showToolbar;
+  }
+
+  getRandomDate() {
+    let date1 = new Date();
+    let date2 = new Date(31, 8, 2022);
+    return new Date(date1.getTime() + Math.random() * (date2.getTime() - date1.getTime()));
+
   }
 
 }
