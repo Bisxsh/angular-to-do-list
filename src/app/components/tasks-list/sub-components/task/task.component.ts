@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ITask} from "../../../../../interfaces/ITask";
+import {TaskService} from "../../../../../services/task.service";
+import {toggleCompleted} from "../../../../util/TaskManager";
 
 @Component({
   selector: 'app-task',
@@ -8,12 +10,15 @@ import {ITask} from "../../../../../interfaces/ITask";
 })
 export class TaskComponent implements OnInit {
 
+  constructor(private service: TaskService) { }
+
   @Input() task!: ITask;
   days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
-  constructor() { }
+  tasks!:ITask[];
 
   ngOnInit(): void {
+    this.service.tasks.subscribe(t => this.tasks = t);
   }
 
   getFormattedDate() {
@@ -34,6 +39,10 @@ export class TaskComponent implements OnInit {
     }
     return taskD.toLocaleDateString();
 
+  }
+
+  toggleTaskCompleted() {
+    this.service.changeTasks(toggleCompleted(this.tasks, this.task));
   }
 
 }

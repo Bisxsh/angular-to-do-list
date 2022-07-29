@@ -33,3 +33,7 @@
 .task--priority {
   width: 52px;
 }
+
+.task--title {
+  font-weight: 300;
+}

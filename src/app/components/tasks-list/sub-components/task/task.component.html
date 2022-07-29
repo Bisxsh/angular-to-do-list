@@ -1,11 +1,16 @@
 <div class="task--container">
   <div class="task--left">
-    <img class="task--checkbox" [src]="'assets/images/checkbox_'+(task.completed ? '' : 'un')+'filled.png'" alt="checkbox" />
-    <h3>{{task.title}}</h3>
+    <img class="task--checkbox"
+         [src]="'assets/images/checkbox_'+(task.completed ? '' : 'un')+'filled.png'"
+         alt="checkbox"
+         (click)="toggleTaskCompleted()"/>
+    <h3 class="task--title">{{task.title}}</h3>
   </div>
 
   <div class="task--right">
     <p>{{getFormattedDate()}}</p>
-    <img class="task--priority" src="assets/images/high_priority.png" alt="priority" />
+    <img class="task--priority"
+         src="assets/images/high_priority.png"
+         alt="priority" />
   </div>
 </div>
