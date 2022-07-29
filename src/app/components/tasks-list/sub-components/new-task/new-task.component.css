@@ -1,0 +1,40 @@
+.new-task--container {
+  background: rgba(210, 210, 210, 0.42);
+  backdrop-filter: blur(4px);
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+  padding: 20px;
+  margin: 20px 140px;
+}
+
+.new-task--input {
+  width: 100%;
+  margin: 10px 30px;
+  font-size: 24px;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color: #6C6C6C;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #6C6C6C;
+  opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #6C6C6C;
+  opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #6C6C6C;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #6C6C6C;
+}
+
+::placeholder { /* Most modern browsers support this now. */
+  color: #6C6C6C;
+}
