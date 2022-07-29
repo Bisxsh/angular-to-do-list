@@ -91,7 +91,7 @@ export class AppComponent implements OnInit{
 
   getRandomDate() {
     let date1 = new Date();
-    let date2 = new Date(31, 8, 2022);
+    let date2 = new Date(2023, 6, 1);
     return new Date(date1.getTime() + Math.random() * (date2.getTime() - date1.getTime()));
 
   }

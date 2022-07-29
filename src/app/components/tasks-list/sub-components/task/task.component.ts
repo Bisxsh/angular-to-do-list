@@ -14,6 +14,7 @@ export class TaskComponent implements OnInit {
 
   @Input() task!: ITask;
   days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
   tasks!:ITask[];
 
@@ -32,10 +33,12 @@ export class TaskComponent implements OnInit {
     if (todayDate == taskDate) return 'Today';
     if (todayDate + 1 == taskDate) return 'Tomorrow';
 
-    console.log(taskDate);
-    console.log(todayDate);
     if (taskDate-todayDate < 7 && taskD.getMonth() == todayD.getMonth()) {
       return this.days[this.task.date.getDay()];
+    }
+
+    if (taskD.getFullYear() == todayD.getFullYear()) {
+      return taskD.getDate() + ' ' + this.months[taskD.getMonth()]
     }
     return taskD.toLocaleDateString();
   }
