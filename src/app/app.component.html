@@ -1,14 +1,10 @@
-<app-new-task></app-new-task>
-<app-task></app-task>
+<div class="app--container">
+  <app-side-bar
+    class="app--side-bar">
 
+  </app-side-bar>
 
-<!--<div class="app&#45;&#45;container">-->
-<!--  <app-side-bar-->
-<!--    class="app&#45;&#45;side-bar">-->
-
-<!--  </app-side-bar>-->
-
-<!--  <div class="app&#45;&#45;main-content">-->
+  <div class="app--main-content">
 
 <!--    <app-header-->
 <!--      class="app&#45;&#45;header"-->
@@ -30,9 +26,11 @@
 <!--      ></app-editor>-->
 <!--    </div>-->
 
-<!--  </div>-->
+    <app-tasks-list></app-tasks-list>
 
-<!--  <app-action-button class="app&#45;&#45;button"></app-action-button>-->
-<!--</div>-->
+  </div>
+
+  <app-action-button class="app--button"></app-action-button>
+</div>
 
 

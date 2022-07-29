@@ -5,8 +5,8 @@
   background: white;
   border-radius: 20px;
   width: auto;
-  padding: 20px;
-  margin: 20px 140px;
+  padding: 10px;
+  margin: 10px 140px;
 }
 
 .task--left, .task--right {
