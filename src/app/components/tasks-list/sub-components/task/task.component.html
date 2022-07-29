@@ -1,7 +1,7 @@
 <div class="task--container">
   <div class="task--left">
-    <img class="task--checkbox" src="assets/images/checkbox_filled.png" alt="checkbox" />
-    <h3>Task 1</h3>
+    <img class="task--checkbox" [src]="'assets/images/checkbox_'+(task.completed ? '' : 'un')+'filled.png'" alt="checkbox" />
+    <h3>{{task.title}}</h3>
   </div>
 
   <div class="task--right">

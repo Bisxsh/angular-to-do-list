@@ -3,10 +3,13 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  overflow: hidden;
 }
 
 .tasks-list--container {
   flex-direction: column;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 /*Header*/
@@ -47,5 +50,12 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  justify-content: center;
+  overflow: auto;
+  margin: 20px 0;
+  padding: 20px;
+}
+
+.tasks-list--tasks-container {
+  height: 100%;
+  width: 100%;
 }
