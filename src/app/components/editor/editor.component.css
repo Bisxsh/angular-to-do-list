@@ -12,6 +12,12 @@
   overflow-y: hidden;
 }
 
+.editor--horizontal-line {
+  width: auto;
+  border: 1px solid #9F9F9F;
+  margin: 2px 10px;
+}
+
 .editor--write-input {
   margin: 15px;
   font-size: 1.3rem;
