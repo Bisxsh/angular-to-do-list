@@ -9,8 +9,13 @@
 
   <div class="task--right">
     <p>{{getFormattedDate()}}</p>
-    <img class="task--priority"
-         src="assets/images/high_priority.png"
-         alt="priority" />
+    <img
+      *ngIf="task.priority != undefined; else elseBlock"
+      class="task--priority"
+      [src]="'assets/images/task/priority'+(task.priority)+'.png'"
+      alt="priority" />
+    <ng-template #elseBlock>
+      <div class="task--priority"></div>
+    </ng-template>
   </div>
 </div>

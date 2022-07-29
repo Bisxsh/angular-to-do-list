@@ -38,6 +38,9 @@ export class TaskComponent implements OnInit {
       return this.days[this.task.date.getDay()];
     }
     return taskD.toLocaleDateString();
+  }
+
+  getPriority() {
 
   }
 
