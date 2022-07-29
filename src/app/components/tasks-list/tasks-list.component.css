@@ -12,10 +12,10 @@
   overflow-x: hidden;
 }
 
-/*Header*/
+/* Header */
 
 .tasks-list--header {
-  margin-top: 30px;
+  margin-top: 70px;
   justify-content: space-between;
 }
 
@@ -44,7 +44,7 @@
   margin: 0 70px;
 }
 
-/*Main content*/
+/* Main content */
 
 .tasks-list--main-container {
   display: flex;
@@ -58,4 +58,19 @@
 .tasks-list--tasks-container {
   height: 100%;
   width: 100%;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 10px 10px #E8E8E8;
+  border: solid 5px #E8E8E8;
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 10px 10px var(--primary-colour);
+  border: solid 5px #E8E8E8;
 }

@@ -27,8 +27,8 @@
 
 .app--button {
   position: absolute;
-  bottom: 1.5vw;
-  right: 1.5vw;
+  bottom: 2vw;
+  right: 2vw;
   width: clamp(9vw, 100%, 10px);
   height: clamp(9vw, 100%, 10px);
 }

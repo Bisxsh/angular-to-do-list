@@ -76,16 +76,16 @@ input:focus, textarea:focus {
   scrollbar-color: #faf3dd #5e6472;
 }
 
-/* Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
-  width: 5px;
+::-webkit-scrollbar {
+  width: 15px;
 }
 
-*::-webkit-scrollbar-track {
-  background: #5e6472;
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 10px 10px var(--primary-colour);
+  border: solid 5px var(--primary-colour);
 }
 
-*::-webkit-scrollbar-thumb {
-  background-color: #faf3dd;
-  border-radius: 10px;
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 10px 10px #faf3dd;
+  border: solid 5px var(--primary-colour);
 }
