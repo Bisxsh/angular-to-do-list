@@ -107,6 +107,7 @@ export class EditorComponent implements OnChanges, OnInit, AfterViewInit {
   insertAtStartOfLine(cursorStart: number, cursorEnd: number, text:string, string: string) {
     let startOfLine = text.substring(0, cursorStart).lastIndexOf('\n')+1;
     if (cursorStart == cursorEnd) {
+      if (text.substring(startOfLine).charAt(0)!=string) string = string + ' ';
       return text.substring(0, startOfLine) + string +
         text.substring(startOfLine);
     }
@@ -147,7 +148,7 @@ export class EditorComponent implements OnChanges, OnInit, AfterViewInit {
 
     switch (button) {
       case EditorButtonMappings.HEADING:
-        this.taskContent = this.insertAtStartOfLine(start, end, text, '# ')
+        this.taskContent = this.insertAtStartOfLine(start, end, text, '#')
         break;
 
       case EditorButtonMappings.ITALIC:
@@ -164,7 +165,7 @@ export class EditorComponent implements OnChanges, OnInit, AfterViewInit {
 
 
       case EditorButtonMappings.BULLET_LIST:
-        this.taskContent = this.insertAtStartOfLine(start, end, text, '- ')
+        this.taskContent = this.insertAtStartOfLine(start, end, text, '-')
         break;
 
       case EditorButtonMappings.NUMBER_LIST:
@@ -182,7 +183,7 @@ export class EditorComponent implements OnChanges, OnInit, AfterViewInit {
         break;
 
       case EditorButtonMappings.QUOTES:
-        this.taskContent = this.insertAtStartOfLine(start, end, text, '> ');
+        this.taskContent = this.insertAtStartOfLine(start, end, text, '>');
         break;
 
       case EditorButtonMappings.CODE:
