@@ -47,8 +47,17 @@ export class HeaderComponent implements OnInit {
       this.service.changeActiveTask(this.tasks[0]);
     }
 
+    this.service.changeTasks(this.tasks.map(t => {
+      if (t.id == this.activeTask.id) return {
+        ...t,
+        completed: !this.activeTask.completed
+      }
+      return t;
+    }))
+
     let task = this.activeTask;
     task.completed = !task.completed;
     this.service.changeActiveTask(task);
+
   }
 }
