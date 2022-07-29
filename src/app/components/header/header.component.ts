@@ -17,8 +17,10 @@ export class HeaderComponent implements OnInit {
   @Output('editorModeChange') editorEmitter: EventEmitter<any> = new EventEmitter<any>();
 
   tasks!:ITask[];
+  activeTask!:ITask;
   ngOnInit(): void {
     this.service.tasks.subscribe(t => this.tasks = t);
+    this.service.activeTask.subscribe(t => this.activeTask = t);
   }
 
   titleChangeHandler(title: any) {
@@ -31,5 +33,15 @@ export class HeaderComponent implements OnInit {
 
   onModeChange() {
     if (this.tasks.length) this.editorEmitter.emit(!this.editorWriteMode);
+  }
+
+  toggleCompleted() {
+    if (!this.activeTask) {
+      this.service.changeActiveTask(this.tasks[0]);
+    }
+
+    let task = this.activeTask;
+    task.completed = !task.completed;
+    this.service.changeActiveTask(task);
   }
 }

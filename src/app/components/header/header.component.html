@@ -7,4 +7,14 @@
     [(ngModel)]="title"
     (change)="onTitleChange($event)">
 
+  <div class="header--button-container">
+    <img class="header--toolbar-toggle" src="assets/images/down-arrow.png" alt="toolbar toggle" />
+    <img
+      class="header--checkbox"
+      [src]="'assets/images/checkbox_'+(((activeTask && activeTask.completed)||false) ? '' :'un')+'filled.png'"
+      alt="checkbox"
+      (click)="toggleCompleted()"
+    />
+  </div>
+
 </div>
