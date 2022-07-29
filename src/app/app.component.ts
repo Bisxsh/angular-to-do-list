@@ -14,7 +14,7 @@ export class AppComponent implements OnInit{
   tasks!: ITask[];
   activeTask!: ITask;
   editorWriteMode:boolean = true;
-
+  showToolbar: boolean = true;
 
   constructor(private http: HttpClient, private service: TaskService) { }
 
@@ -81,6 +81,10 @@ export class AppComponent implements OnInit{
 
   editorWriteModeChange() {
     this.editorWriteMode = !this.editorWriteMode;
+  }
+
+  toggleToolbar() {
+    this.showToolbar = !this.showToolbar;
   }
 
 }

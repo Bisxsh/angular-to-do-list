@@ -10,8 +10,10 @@
       class="app--header"
       [editorWriteMode]="editorWriteMode"
       [title]="(activeTask && activeTask.title) || ''"
+      [showToolbar]="showToolbar"
       (editorModeChange)="editorWriteModeChange()"
       (taskTitleChange)="activeTaskTitleChanged($event)"
+      (toolbarToggled)="toggleToolbar()"
     ></app-header>
 
     <div class="app--editor-container">
@@ -19,6 +21,7 @@
         class="app--editor"
         [activeTask]="activeTask"
         [write]="editorWriteMode"
+        [showToolbar]="showToolbar"
         (taskContentChange)="activeTaskContentChange($event)"
       ></app-editor>
     </div>

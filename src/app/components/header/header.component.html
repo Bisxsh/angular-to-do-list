@@ -8,7 +8,12 @@
     (change)="onTitleChange($event)">
 
   <div class="header--button-container">
-    <img class="header--toolbar-toggle" src="assets/images/down-arrow.png" alt="toolbar toggle" />
+    <img
+      [class]="'header--toolbar-toggle ' + (showToolbar ? 'flipped' : '')"
+      src="assets/images/down-arrow.png"
+      alt="toolbar toggle"
+      (click)="onToolbarChange()"
+    />
     <img
       class="header--checkbox"
       [src]="'assets/images/checkbox_'+(((activeTask && activeTask.completed)||false) ? '' :'un')+'filled.png'"

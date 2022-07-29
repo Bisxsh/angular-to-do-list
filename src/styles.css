@@ -40,6 +40,12 @@ input:focus, textarea:focus {
   visibility: hidden;
 }
 
+.gone {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
 .grey_font {
   color: #97999B;
 }

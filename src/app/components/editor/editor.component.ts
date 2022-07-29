@@ -25,6 +25,7 @@ export class EditorComponent implements OnChanges, OnInit, AfterViewInit {
 
   @Input() activeTask!: ITask;
   @Input() write!: boolean;
+  @Input() showToolbar!: boolean;
   @Output('taskContentChange') eventEmitter: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild('editorInput') editorInput!: ElementRef;
 

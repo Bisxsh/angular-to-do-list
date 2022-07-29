@@ -13,11 +13,14 @@ export class HeaderComponent implements OnInit {
 
   @Input() title!: string;
   @Input() editorWriteMode!:boolean;
+  @Input() showToolbar!:boolean;
   @Output('taskTitleChange') taskEmitter: EventEmitter<any> = new EventEmitter<any>();
   @Output('editorModeChange') editorEmitter: EventEmitter<any> = new EventEmitter<any>();
+  @Output('toolbarToggled') toolbarEmitter: EventEmitter<any> = new EventEmitter<any>();
 
   tasks!:ITask[];
   activeTask!:ITask;
+
   ngOnInit(): void {
     this.service.tasks.subscribe(t => this.tasks = t);
     this.service.activeTask.subscribe(t => this.activeTask = t);
@@ -33,6 +36,10 @@ export class HeaderComponent implements OnInit {
 
   onModeChange() {
     if (this.tasks.length) this.editorEmitter.emit(!this.editorWriteMode);
+  }
+
+  onToolbarChange() {
+    this.toolbarEmitter.emit();
   }
 
   toggleCompleted() {

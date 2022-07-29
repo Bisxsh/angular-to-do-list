@@ -13,11 +13,16 @@
   aspect-ratio: 1/1;
   width: 40px;
   margin-inline: 10px;
+  cursor: pointer;
 }
 
 .header--title {
   margin: 15px 15px 15px 30px;
   font-size: 30px;
   line-height: 55px;
+}
+
+.flipped {
+  transform: rotate(180deg);
 }
 
