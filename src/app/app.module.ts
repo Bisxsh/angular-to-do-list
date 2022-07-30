@@ -29,6 +29,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatCardModule} from "@angular/material/card";
 import { DeleteCompletedComponent } from './components/action-button/sub-components/delete-completed/delete-completed.component';
+import { PopupPromptComponent } from './components/action-button/sub-components/popup-prompt/popup-prompt.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { DeleteCompletedComponent } from './components/action-button/sub-compone
     TasksListComponent,
     TaskComponent,
     NewTaskComponent,
-    DeleteCompletedComponent
+    DeleteCompletedComponent,
+    PopupPromptComponent
   ],
   imports: [
     BrowserModule,

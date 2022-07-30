@@ -22,24 +22,32 @@
 
 </div>
 
-<div [class]="'button--prompt '+(showPrompt ? '' : 'hidden')">
-  <div class="button--prompt-text">
-    <p class="button--prompt--main-text">Are you sure you want to delete all your notes?</p>
-    <p class="button--prompt--sub-text"> WARNING: This action cannot be undone.</p>
-  </div>
-  <div class="button--prompt-buttons">
-    <button
-      class="button--prompt-buttons--confirm"
-      (click)="deleteAllNotes()"
-    >Confirm
-    </button>
-    <button
-      class="button--prompt-buttons--cancel"
-      (click)="toggleDeletePrompt()"
-    >Cancel
-    </button>
-  </div>
-</div>
+<!--<div [class]="'button&#45;&#45;prompt '+(showPrompt ? '' : 'hidden')">-->
+<!--  <div class="button&#45;&#45;prompt-text">-->
+<!--    <p class="button&#45;&#45;prompt&#45;&#45;main-text">Are you sure you want to delete all your notes?</p>-->
+<!--    <p class="button&#45;&#45;prompt&#45;&#45;sub-text"> WARNING: This action cannot be undone.</p>-->
+<!--  </div>-->
+<!--  <div class="button&#45;&#45;prompt-buttons">-->
+<!--    <button-->
+<!--      class="button&#45;&#45;prompt-buttons&#45;&#45;confirm"-->
+<!--      (click)="deleteAllNotes()"-->
+<!--    >Confirm-->
+<!--    </button>-->
+<!--    <button-->
+<!--      class="button&#45;&#45;prompt-buttons&#45;&#45;cancel"-->
+<!--      (click)="toggleDeletePrompt()"-->
+<!--    >Cancel-->
+<!--    </button>-->
+<!--  </div>-->
+<!--</div>-->
+
+<app-popup-prompt
+  [class]="showAllNotesPrompt ? '' : 'hidden'"
+  question="Are you sure you want to delete all your notes?"
+  [allNotes]="true"
+  [showPopup]="showAllNotesPrompt"
+  (promptDismissed)="dismissDeletePrompt($event)"
+></app-popup-prompt>
 
 <div [class]="'popup_window '+(showInfo ? '' : 'hidden')" (click)="toggleInfo()">
   <div class="button--info-container" (click)="toggleInfo()">

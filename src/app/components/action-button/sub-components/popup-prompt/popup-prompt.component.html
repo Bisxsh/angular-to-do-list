@@ -1,0 +1,18 @@
+<div class="popup--prompt">
+  <div class="popup--prompt-text">
+    <p class="popup--prompt--main-text">{{question}}</p>
+    <p class="popup--prompt--sub-text"> WARNING: This action cannot be undone.</p>
+  </div>
+  <div class="popup--prompt-buttons">
+    <button
+      class="popup--prompt-buttons--confirm"
+      (click)="promptConfirmed()"
+    >Confirm
+    </button>
+    <button
+      class="popup--prompt-buttons--cancel"
+      (click)="dismissPrompt()"
+    >Cancel
+    </button>
+  </div>
+</div>

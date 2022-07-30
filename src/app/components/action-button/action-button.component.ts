@@ -13,6 +13,8 @@ export class ActionButtonComponent {
 
   showMenu: boolean = false;
   showPrompt: boolean = false;
+  showAllNotesPrompt: boolean = false;
+  showCompletedNotesPrompt: boolean = false;
   showInfo: boolean = false;
   tasks!:ITask[];
 
@@ -25,11 +27,11 @@ export class ActionButtonComponent {
   }
 
   toggleDeletePrompt() {
-    this.showPrompt = !this.showPrompt;
+    this.showAllNotesPrompt = !this.showAllNotesPrompt;
   }
 
-  deleteAllNotes() {
-    this.service.changeTasks([]);
+  dismissDeletePrompt(event:any) {
+    console.log(event);
     this.toggleDeletePrompt();
     this.toggleMenu();
   }
