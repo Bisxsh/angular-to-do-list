@@ -14,12 +14,14 @@ export class TaskService{
   private _filtersSource = new BehaviorSubject<IFilter[]>(filters);
   private _filterAppliedSource = new BehaviorSubject<number>(0);
   private _taskCollections = new BehaviorSubject<string[]>(['Test']);
+  private _showEditor = new BehaviorSubject<boolean>(false);
 
   filters = this._filtersSource.asObservable();
   tasks = this._tasksSource.asObservable();
   activeTask = this._activeTaskSource.asObservable();
   filterApplied = this._filterAppliedSource.asObservable();
   taskCollections = this._taskCollections.asObservable();
+  showEditor = this._showEditor.asObservable();
 
   changeTasks(tasks: ITask[]) {
     this._tasksSource.next(tasks);
@@ -39,6 +41,10 @@ export class TaskService{
 
   changeTaskCollections(collections: string[]) {
     this._taskCollections.next(collections);
+  }
+
+  toggleEditor(showEditor:boolean) {
+    this._showEditor.next(showEditor);
   }
 
   deleteTask(index: number, tasks:ITask[]) {

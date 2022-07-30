@@ -15,13 +15,15 @@ export class AppComponent implements OnInit{
   activeTask!: ITask;
   editorWriteMode:boolean = true;
   showToolbar: boolean = true;
+  showEditor!: boolean;
 
   constructor(private http: HttpClient, private service: TaskService) { }
 
   ngOnInit(): void {
     this.service.tasks.subscribe(t => this.tasks = t);
     this.service.activeTask.subscribe(t => this.activeTask = t);
-    console.log(this.tasks);
+    this.service.showEditor.subscribe(e => this.showEditor = e);
+
     //Load dummy data
     this.tasks = []
     this.http.get<ITask[]>("https://jsonplaceholder.typicode.com/todos")

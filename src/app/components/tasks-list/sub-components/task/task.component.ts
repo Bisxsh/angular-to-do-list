@@ -19,10 +19,12 @@ export class TaskComponent implements OnInit {
   tasks!:ITask[];
   showDatePicker!:boolean;
   date: any;
+  showEditor!:boolean;
 
   ngOnInit(): void {
     this.service.tasks.subscribe(t => this.tasks = t);
-    // this.showDatePicker = this.task.date==undefined;
+    this.service.showEditor.subscribe(e => this.showEditor = e);
+
     this.showDatePicker = true;
     this.date = this.getFormattedDate();
   }
@@ -70,6 +72,12 @@ export class TaskComponent implements OnInit {
       }
       return t;
     }))
+  }
+
+  toggleEditor() {
+    this.service.changeActiveTask(this.task);
+    this.service.toggleEditor(!this.showEditor);
+    console.log(this.showEditor);
   }
 
 }

@@ -1,11 +1,19 @@
 <div class="header--container">
 
-  <input
-    [class]="'header--title '+(tasks.length ? '' : 'hidden')"
-    type="text"
-    placeholder="Title"
-    [(ngModel)]="title"
-    (change)="onTitleChange($event)">
+  <div class="header--left-container">
+    <img
+      class="header--back"
+      src="assets/images/down-arrow.png"
+      alt="back button"
+      (click)="toggleEditor()"/>
+
+    <input
+      [class]="'header--title '+(tasks.length ? '' : 'hidden')"
+      type="text"
+      placeholder="Title"
+      [(ngModel)]="title"
+      (change)="onTitleChange($event)">
+  </div>
 
   <div class="header--button-container">
     <img

@@ -6,27 +6,32 @@
 
   <div class="app--main-content">
 
-<!--    <app-header-->
-<!--      class="app&#45;&#45;header"-->
-<!--      [editorWriteMode]="editorWriteMode"-->
-<!--      [title]="(activeTask && activeTask.title) || ''"-->
-<!--      [showToolbar]="showToolbar"-->
-<!--      (editorModeChange)="editorWriteModeChange()"-->
-<!--      (taskTitleChange)="activeTaskTitleChanged($event)"-->
-<!--      (toolbarToggled)="toggleToolbar()"-->
-<!--    ></app-header>-->
+    <app-tasks-list
+      class="app--main-container"
+      *ngIf="showEditor; else elseBlock"
+    ></app-tasks-list>
 
-<!--    <div class="app&#45;&#45;main-container">-->
-<!--      <app-editor-->
-<!--        class="app&#45;&#45;editor"-->
-<!--        [activeTask]="activeTask"-->
-<!--        [write]="editorWriteMode"-->
-<!--        [showToolbar]="showToolbar"-->
-<!--        (taskContentChange)="activeTaskContentChange($event)"-->
-<!--      ></app-editor>-->
-<!--    </div>-->
+    <ng-template #elseBlock>
+      <app-header
+        class="app--header"
+        [editorWriteMode]="editorWriteMode"
+        [title]="(activeTask && activeTask.title) || ''"
+        [showToolbar]="showToolbar"
+        (editorModeChange)="editorWriteModeChange()"
+        (taskTitleChange)="activeTaskTitleChanged($event)"
+        (toolbarToggled)="toggleToolbar()"
+      ></app-header>
 
-    <app-tasks-list class="app--main-container"></app-tasks-list>
+      <div class="app--main-container">
+        <app-editor
+          class="app--editor"
+          [activeTask]="activeTask"
+          [write]="editorWriteMode"
+          [showToolbar]="showToolbar"
+          (taskContentChange)="activeTaskContentChange($event)"
+        ></app-editor>
+      </div>
+    </ng-template>
 
   </div>
 

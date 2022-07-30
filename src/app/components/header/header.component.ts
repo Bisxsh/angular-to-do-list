@@ -20,10 +20,12 @@ export class HeaderComponent implements OnInit {
 
   tasks!:ITask[];
   activeTask!:ITask;
+  showEditor!:boolean;
 
   ngOnInit(): void {
     this.service.tasks.subscribe(t => this.tasks = t);
     this.service.activeTask.subscribe(t => this.activeTask = t);
+    this.service.showEditor.subscribe(e => this.showEditor = e);
   }
 
   titleChangeHandler(title: any) {
@@ -58,6 +60,10 @@ export class HeaderComponent implements OnInit {
     let task = this.activeTask;
     task.completed = !task.completed;
     this.service.changeActiveTask(task);
+  }
 
+  toggleEditor() {
+    this.service.toggleEditor(!this.showEditor);
+    console.log(this.showEditor);
   }
 }

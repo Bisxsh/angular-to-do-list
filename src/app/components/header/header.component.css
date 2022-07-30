@@ -26,3 +26,17 @@
   transform: rotate(180deg);
 }
 
+.header--left-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header--back {
+  aspect-ratio: 1/1;
+  width: 30px;
+  margin: 15px 15px 15px 30px;
+  transform: rotate(90deg);
+  cursor: pointer;
+}
+

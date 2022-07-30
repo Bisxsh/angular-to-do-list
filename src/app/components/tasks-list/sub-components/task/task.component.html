@@ -1,4 +1,4 @@
-<div class="task--container">
+<div class="task--container" (click)="toggleEditor()">
   <div class="task--left">
     <img class="task--checkbox"
          [src]="'assets/images/checkbox_'+(task.completed ? '' : 'un')+'filled.png'"
