@@ -17,9 +17,11 @@ export class TaskComponent implements OnInit {
   months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
   tasks!:ITask[];
+  showDatePicker!:boolean;
 
   ngOnInit(): void {
     this.service.tasks.subscribe(t => this.tasks = t);
+    this.showDatePicker = this.task.date==undefined;
   }
 
   getFormattedDate() {

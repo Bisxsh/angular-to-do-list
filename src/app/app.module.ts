@@ -22,6 +22,12 @@ import {InfoButtonComponent} from "./components/action-button/sub-components/inf
 import { TasksListComponent } from './components/tasks-list/tasks-list.component';
 import { TaskComponent } from './components/tasks-list/sub-components/task/task.component';
 import { NewTaskComponent } from './components/tasks-list/sub-components/new-task/new-task.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatNativeDateModule} from "@angular/material/core";
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -44,9 +50,16 @@ import { NewTaskComponent } from './components/tasks-list/sub-components/new-tas
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCardModule
   ],
-  providers: [],
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,7 +8,18 @@
   </div>
 
   <div class="task--right">
-    <p>{{getFormattedDate()}}</p>
+    <p *ngIf="task.date != undefined">{{getFormattedDate()}}</p>
+
+    <mat-form-field
+      *ngIf="showDatePicker"
+      color="primary"
+      appearance="fill">
+      <input matInput [matDatepicker]="picker1">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+
+
     <img
       *ngIf="task.priority != undefined; else elseBlock"
       class="task--priority"
