@@ -16,7 +16,7 @@ export class SideMenuOptionComponent {
   @Input()
   get iconName(): string { return this.iconPath; }
   set iconName(path: string) {
-    this.iconPath = (path && '/assets/images/'+path) || '/assets/images/task_icon.png';
+    this.iconPath = (path && 'assets/images/'+path) || 'assets/images/task_icon.png';
   }
 
   iconPath = '';
