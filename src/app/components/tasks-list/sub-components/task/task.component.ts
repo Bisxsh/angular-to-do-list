@@ -25,7 +25,6 @@ export class TaskComponent implements OnInit {
     // this.showDatePicker = this.task.date==undefined;
     this.showDatePicker = true;
     this.date = this.getFormattedDate();
-    console.log(this.date);
   }
 
   getFormattedDate() {

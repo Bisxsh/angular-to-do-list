@@ -22,17 +22,12 @@ export class NewTaskComponent implements OnInit {
 
     let value = event.target.value;
     let temp = this.tasks.map(t => {
-      if (t.active) return {
-        ...t,
-        active: false
-      }
-      console.log(t.id);
       return {
         ...t,
+        active: false,
         id: t.id+1
       }
     })
-    console.log(this.tasks);
 
     let task = BLANK_TASK;
     task.title = value;
