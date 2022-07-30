@@ -16,7 +16,7 @@ export class TasksListComponent implements OnInit {
   tasks!:ITask[];
   activeTask!:ITask;
   filterApplied!:number;
-  showSort: boolean = true;
+  showSort: boolean = false;
 
   ngOnInit(): void {
     this.service.tasks.subscribe(t => this.tasks = t);
