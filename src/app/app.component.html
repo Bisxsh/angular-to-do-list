@@ -8,7 +8,7 @@
 
     <app-tasks-list
       class="app--main-container"
-      *ngIf="showEditor; else elseBlock"
+      *ngIf="!showEditor; else elseBlock"
     ></app-tasks-list>
 
     <ng-template #elseBlock>

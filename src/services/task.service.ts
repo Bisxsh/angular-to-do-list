@@ -6,7 +6,7 @@ import {filters} from "../app/components/side-bar/util/Filters";
 @Injectable({
   providedIn: 'root'
 })
-export class TaskService{
+export class TaskService {
 
   private _tasksSource = new BehaviorSubject<ITask[]>([]);
   private _activeTask!: ITask;

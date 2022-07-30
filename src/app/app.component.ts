@@ -23,6 +23,7 @@ export class AppComponent implements OnInit{
     this.service.tasks.subscribe(t => this.tasks = t);
     this.service.activeTask.subscribe(t => this.activeTask = t);
     this.service.showEditor.subscribe(e => this.showEditor = e);
+    console.log(this.showEditor);
 
     //Load dummy data
     this.tasks = []
