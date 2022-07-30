@@ -32,6 +32,10 @@ export class TasksListComponent implements OnInit {
     }
   }
 
+  areTasksInCategoryComplete() {
+    return this.getFilteredList().filter(t => !t.completed).length == 0
+  }
+
   getFilteredList() {
     return filterTasks(this.tasks, this.filterApplied);
   }

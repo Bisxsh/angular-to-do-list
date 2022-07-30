@@ -1,7 +1,10 @@
 <div class="tasks-list--container">
   <div class="tasks-list--header">
     <div class="tasks-list--header--left">
-      <img class="tasks-list--header--checkbox" src="assets/images/checkbox_unfilled.png" alt="checkbox" />
+      <img class="tasks-list--header--checkbox"
+           [src]="'assets/images/checkbox_'+(areTasksInCategoryComplete() ? '' : 'un')+'filled.png'"
+           alt="checkbox"
+      />
       <h1 class="tasks-list--header-title">{{getFilterTitle()}}</h1>
     </div>
     <img class="tasks-list--header--sort" src="assets/images/sort.png" alt="sort" />
