@@ -29,7 +29,6 @@ export class PopupPromptComponent implements OnInit {
       this.deleteCompletedNotes();
     }
     this.dismissPrompt();
-    console.log("HERE");
   }
 
   deleteAllNotes() {

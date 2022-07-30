@@ -22,17 +22,20 @@ export class ActionButtonComponent {
     this.service.tasks.subscribe(t => this.tasks = t);
   }
 
-  removeCompleted() {
-    this.service.changeTasks(this.tasks.filter(t => !t.completed));
-  }
-
   toggleDeletePrompt() {
     this.showAllNotesPrompt = !this.showAllNotesPrompt;
   }
 
-  dismissDeletePrompt(event:any) {
-    console.log(event);
-    this.toggleDeletePrompt();
+  toggleCompletedPrompt() {
+    this.showCompletedNotesPrompt = !this.showCompletedNotesPrompt;
+  }
+
+  dismissPrompt(event:any) {
+    if (event) {
+      this.toggleDeletePrompt();
+    } else {
+      this.toggleCompletedPrompt();
+    }
     this.toggleMenu();
   }
 
