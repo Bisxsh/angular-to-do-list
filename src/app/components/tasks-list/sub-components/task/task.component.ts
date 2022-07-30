@@ -54,11 +54,20 @@ export class TaskComponent implements OnInit {
   }
 
   updateDate(event: any) {
-    console.log(new Date(event.target.value));
     this.service.changeTasks(this.tasks.map(t => {
       if (t.id == this.task.id) return {
         ...t,
         date: new Date(event.target.value)
+      }
+      return t;
+    }))
+  }
+
+  cyclePriority() {
+    this.service.changeTasks(this.tasks.map(t => {
+      if (t.id == this.task.id) return {
+        ...t,
+        priority: (t.priority+1)%4
       }
       return t;
     }))

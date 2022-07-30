@@ -44,7 +44,7 @@ export class AppComponent implements OnInit{
             active: (obj.id === 1),
             description: "# Type your markdown notes here",
             date: this.getRandomDate(),
-            priority: (Math.floor(Math.random() * 4)) || undefined
+            priority: (Math.floor(Math.random() * 4))
           }
           this.tasks.push(t);
 

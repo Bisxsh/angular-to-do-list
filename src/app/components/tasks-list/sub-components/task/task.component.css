@@ -33,6 +33,7 @@
 
 .task--priority {
   width: 52px;
+  cursor: pointer;
 }
 
 .task--title {

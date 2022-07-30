@@ -30,12 +30,9 @@
 
 
     <img
-      *ngIf="task.priority != undefined; else elseBlock"
       class="task--priority"
       [src]="'assets/images/task/priority'+(task.priority)+'.png'"
-      alt="priority" />
-    <ng-template #elseBlock>
-      <div class="task--priority"></div>
-    </ng-template>
+      alt="priority"
+      (click)="cyclePriority()"/>
   </div>
 </div>
