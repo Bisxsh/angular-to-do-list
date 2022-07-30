@@ -16,6 +16,7 @@ export class TasksListComponent implements OnInit {
   tasks!:ITask[];
   activeTask!:ITask;
   filterApplied!:number;
+  showSort: boolean = true;
 
   ngOnInit(): void {
     this.service.tasks.subscribe(t => this.tasks = t);
@@ -38,6 +39,10 @@ export class TasksListComponent implements OnInit {
 
   getFilteredList() {
     return filterTasks(this.tasks, this.filterApplied);
+  }
+
+  toggleSort() {
+    this.showSort = !this.showSort;
   }
 
 }

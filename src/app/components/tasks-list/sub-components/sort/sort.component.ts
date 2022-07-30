@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {ITask} from "../../../../../interfaces/ITask";
 import {TaskService} from "../../../../../services/task.service";
 
 @Component({
   selector: 'app-sort',
   templateUrl: './sort.component.html',
-  styleUrls: ['./sort.component.css']
+  styleUrls: ['./sort.component.css'],
 })
-export class SortComponent implements OnInit {
+export class SortComponent implements OnInit, OnChanges {
 
   constructor(private service: TaskService) { }
 
@@ -15,6 +15,10 @@ export class SortComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.tasks.subscribe(t => this.tasks = t);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
   }
 
   sortByNewest() {
@@ -39,7 +43,7 @@ export class SortComponent implements OnInit {
   }
 
   sortByPriority() {
-    this.service.changeTasks(this.tasks.sort(((a, b) => a.priority - b.priority)));
+    this.service.changeTasks(this.tasks.sort(((a, b) => b.priority - a.priority)));
   }
 
 }
