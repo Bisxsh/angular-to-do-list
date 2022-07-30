@@ -3,10 +3,10 @@
     [class]="'buttons--button-2 ' + (showMenu ? '' : 'hidden')"
     (click)="toggleDeletePrompt()"
   ></app-delete-all-button>
-  <app-add-task-button
+  <app-delete-completed
     [class]="'buttons--button-3 ' + (showMenu ? '' : 'hidden')"
-    (click)="addNote()"
-  ></app-add-task-button>
+    (click)="removeCompleted()"
+  ></app-delete-completed>
   <app-info-button
     [class]="'buttons--button-4 ' + (showMenu ? '' : 'hidden')"
     (click)="toggleInfo()"

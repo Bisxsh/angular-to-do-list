@@ -28,6 +28,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatCardModule} from "@angular/material/card";
+import { DeleteCompletedComponent } from './components/action-button/sub-components/delete-completed/delete-completed.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import {MatCardModule} from "@angular/material/card";
     InfoButtonComponent,
     TasksListComponent,
     TaskComponent,
-    NewTaskComponent
+    NewTaskComponent,
+    DeleteCompletedComponent
   ],
   imports: [
     BrowserModule,

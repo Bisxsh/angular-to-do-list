@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {TaskService} from "../../../services/task.service";
-import {BLANK_TASK, ITask} from "../../../interfaces/ITask";
+import {ITask} from "../../../interfaces/ITask";
 
 @Component({
   selector: 'app-action-button',
@@ -20,21 +20,8 @@ export class ActionButtonComponent {
     this.service.tasks.subscribe(t => this.tasks = t);
   }
 
-  addNote() {
-    let temp = this.tasks.map(t => {
-      if (t.active) return {
-        ...t,
-        active: false
-      }
-      return {
-        ...t,
-        id: t.id+1
-      }
-    })
-    temp.unshift(BLANK_TASK)
-    this.service.changeActiveTask(temp[0]);
-    this.service.changeTasks(temp);
-    this.toggleMenu();
+  removeCompleted() {
+    this.service.changeTasks(this.tasks.filter(t => !t.completed));
   }
 
   toggleDeletePrompt() {
