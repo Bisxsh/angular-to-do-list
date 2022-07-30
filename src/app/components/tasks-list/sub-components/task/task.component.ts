@@ -18,10 +18,14 @@ export class TaskComponent implements OnInit {
 
   tasks!:ITask[];
   showDatePicker!:boolean;
+  date: any;
 
   ngOnInit(): void {
     this.service.tasks.subscribe(t => this.tasks = t);
-    this.showDatePicker = this.task.date==undefined;
+    // this.showDatePicker = this.task.date==undefined;
+    this.showDatePicker = true;
+    this.date = this.getFormattedDate();
+    console.log(this.date);
   }
 
   getFormattedDate() {
@@ -47,6 +51,17 @@ export class TaskComponent implements OnInit {
 
   toggleTaskCompleted() {
     this.service.changeTasks(toggleCompleted(this.tasks, this.task));
+  }
+
+  updateDate(event: any) {
+    console.log(new Date(event.target.value));
+    this.service.changeTasks(this.tasks.map(t => {
+      if (t.id == this.task.id) return {
+        ...t,
+        date: new Date(event.target.value)
+      }
+      return t;
+    }))
   }
 
 }

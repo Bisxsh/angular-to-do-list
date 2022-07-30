@@ -69,6 +69,32 @@ input:focus, textarea:focus {
   background-color: var(--seconary-accent);
 }
 
+.mat-form-field-wrapper {
+  padding: 0;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-infix {
+  padding: 0;
+}
+
+.mat-form-field-infix {
+  border-top: 0;
+  text-align: right;
+  transform: translateY(-5px);
+  margin-right: 5px;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: transparent;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mat-form-field-underline {
+  display: none;
+}
+
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
 * {

@@ -8,15 +8,24 @@
   </div>
 
   <div class="task--right">
-    <p *ngIf="task.date != undefined">{{getFormattedDate()}}</p>
+<!--    <p *ngIf="task.date != undefined">{{getFormattedDate()}}</p>-->
 
     <mat-form-field
       *ngIf="showDatePicker"
       color="primary"
       appearance="fill">
-      <input matInput [matDatepicker]="picker1">
+      <label>{{getFormattedDate()}}</label>
+      <input
+        class="gone"
+        matInput
+        [matDatepicker]="picker1"
+        [(ngModel)]="date"
+        (dateChange)="updateDate($event)">
       <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-      <mat-datepicker #picker1></mat-datepicker>
+      <mat-datepicker
+        #picker1
+        panelClass="task--date-picker"
+      ></mat-datepicker>
     </mat-form-field>
 
 
