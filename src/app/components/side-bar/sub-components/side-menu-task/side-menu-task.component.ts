@@ -27,9 +27,9 @@ export class SideMenuTaskComponent implements OnChanges{
 
   getIconName() {
     if (this.completed) {
-      return "completed_task"+((this.active) ? "s_" : "_in")+"active.png";
+      return "sidebar/completed_task"+((this.active) ? "s_" : "_in")+"active.png";
     }
-    return "task_icon_"+((this.active) ? "" : "in")+"active.png";
+    return "sidebar/task_icon_"+((this.active) ? "" : "in")+"active.png";
   }
 
   ngOnChanges(changes: SimpleChanges): void {

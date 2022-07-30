@@ -26,11 +26,13 @@ export class NewTaskComponent implements OnInit {
         ...t,
         active: false
       }
+      console.log(t.id);
       return {
         ...t,
         id: t.id+1
       }
     })
+    console.log(this.tasks);
 
     let task = BLANK_TASK;
     task.title = value;

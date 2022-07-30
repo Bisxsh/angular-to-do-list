@@ -1,14 +1,14 @@
 export interface ITask {
-  id: number,
-  title: string,
-  userId: number,
-  completed: boolean,
+  id: number;
+  title: string;
+  userId: number;
+  completed: boolean;
 
-  category: string,
-  active: boolean
-  description: string
+  category: string;
+  active: boolean;
+  description: string;
   date?: Date;
-  priority: number
+  priority: number;
 }
 
 export const BLANK_TASK = {

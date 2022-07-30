@@ -13,11 +13,13 @@ export class TaskService{
   private _activeTaskSource = new BehaviorSubject<ITask>(this._activeTask);
   private _filtersSource = new BehaviorSubject<IFilter[]>(filters);
   private _filterAppliedSource = new BehaviorSubject<number>(0);
+  private _taskCollections = new BehaviorSubject<string[]>(['Test']);
 
   filters = this._filtersSource.asObservable();
   tasks = this._tasksSource.asObservable();
   activeTask = this._activeTaskSource.asObservable();
   filterApplied = this._filterAppliedSource.asObservable();
+  taskCollections = this._taskCollections.asObservable();
 
   changeTasks(tasks: ITask[]) {
     this._tasksSource.next(tasks);
@@ -33,6 +35,10 @@ export class TaskService{
 
   changeFilterApplied(filter: number) {
     this._filterAppliedSource.next(filter);
+  }
+
+  changeTaskCollections(collections: string[]) {
+    this._taskCollections.next(collections);
   }
 
   deleteTask(index: number, tasks:ITask[]) {

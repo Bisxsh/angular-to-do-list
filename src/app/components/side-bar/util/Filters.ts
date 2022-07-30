@@ -7,13 +7,13 @@ export let filters: IFilter[] = [
     active: true,
   },
 
-  {
-    id: 1,
-    label: 'Collections',
-    activeIcon: 'sidebar/collections_active.png',
-    inactiveIcon: 'sidebar/collections_inactive.png',
-    active: false
-  },
+  // {
+  //   id: 1,
+  //   label: 'Collections',
+  //   activeIcon: 'sidebar/collections_active.png',
+  //   inactiveIcon: 'sidebar/collections_inactive.png',
+  //   active: false
+  // },
 
   {
     id: 2,
@@ -35,6 +35,7 @@ export let filters: IFilter[] = [
 
 export enum Filters {
   ALL_TASKS,
-  COMPLETED,
-  INCOMPLETE
+  COLLECTIONS,
+  TODAY,
+  WEEK
 }
