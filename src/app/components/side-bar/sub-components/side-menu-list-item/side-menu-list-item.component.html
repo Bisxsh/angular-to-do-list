@@ -1,0 +1,10 @@
+<app-side-menu-option
+  [class]="(item.active) ? '' : 'grey_font'"
+  backgroundColourClass="secondary-accent"
+  [label]="item.label"
+  [iconName]="getIconName()"
+  [showDeleteIcon]="item.active"
+  [backgroundActive] = "item.active"
+  (click)="taskClickHandler()"
+  (deleteTask)="deleteTask()">
+</app-side-menu-option>
