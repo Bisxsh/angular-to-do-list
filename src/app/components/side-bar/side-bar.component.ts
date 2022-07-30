@@ -1,8 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {Filters} from './util/Filters'
 import { ITask } from "../../../interfaces/ITask";
 import {TaskService} from "../../../services/task.service";
-import * as dayjs from "dayjs";
+import {filterTasks} from "../../util/TaskManager";
 
 @Component({
   selector: 'app-side-bar',
@@ -62,24 +61,7 @@ export class SideBarComponent implements OnInit{
   }
 
   getFilteredList() {
-    switch (this.filterApplied) {
-      default:
-      case Filters.ALL_TASKS:
-        return this.tasks;
-
-      case Filters.TODAY:
-        return this.tasks.filter(t => (t.date && this.sameDay(t.date)) || false);
-
-      case Filters.WEEK:
-        return this.tasks.filter(t => (t.date && dayjs(t.date).isSame(dayjs(), 'w')) || false);
-    }
-  }
-
-  sameDay(date:Date) {
-    let today = new Date();
-    return date.getFullYear() === today.getFullYear() &&
-      date.getMonth() === today.getMonth() &&
-      date.getDate() === today.getDate();
+    return filterTasks(this.tasks, this.filterApplied);
   }
 
 }

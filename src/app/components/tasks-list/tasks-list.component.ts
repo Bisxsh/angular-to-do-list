@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ITask} from "../../../interfaces/ITask";
 import {TaskService} from "../../../services/task.service";
 import {Filters} from "../side-bar/util/Filters";
+import {filterTasks} from "../../util/TaskManager";
 
 @Component({
   selector: 'app-tasks-list',
@@ -29,6 +30,10 @@ export class TasksListComponent implements OnInit {
       case (Filters.WEEK): return 'This Week\'s Tasks';
       case (Filters.TODAY): return 'Today\'s Tasks';
     }
+  }
+
+  getFilteredList() {
+    return filterTasks(this.tasks, this.filterApplied);
   }
 
 }

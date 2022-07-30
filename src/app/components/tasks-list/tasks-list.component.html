@@ -12,7 +12,7 @@
     <app-new-task></app-new-task>
 
     <div class="tasks-list--tasks-container">
-      <app-task *ngFor="let task of tasks"
+      <app-task *ngFor="let task of getFilteredList()"
                 [task]="task"
       ></app-task>
 
