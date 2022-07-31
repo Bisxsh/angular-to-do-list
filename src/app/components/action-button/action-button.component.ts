@@ -5,7 +5,7 @@ import {ITask} from "../../../interfaces/ITask";
 @Component({
   selector: 'app-action-button',
   templateUrl: './action-button.component.html',
-  styleUrls: ['./action-button.component.css']
+  styleUrls: ['./action-button.component.css', './action-button-animation.component.css']
 })
 export class ActionButtonComponent {
 

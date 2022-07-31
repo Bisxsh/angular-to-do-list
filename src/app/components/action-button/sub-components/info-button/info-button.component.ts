@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-info-button',
   templateUrl: './info-button.component.html',
-  styleUrls: ['../../action-button.component.css']
+  styleUrls: ['../../action-button.component.css', '../../action-button-animation.component.css']
 })
 export class InfoButtonComponent implements OnInit {
 
