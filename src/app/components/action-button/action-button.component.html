@@ -1,14 +1,14 @@
 <div class="buttons--container">
   <app-delete-all-button
-    [class]="'buttons--button-2 ' + (showMenu ? '' : 'hidden')"
+    [class]="'buttons--button-2 ' + 'button-1-'+(showMenu ? 'shown' : 'hidden')"
     (click)="toggleDeletePrompt()"
   ></app-delete-all-button>
   <app-delete-completed
-    [class]="'buttons--button-3 ' + (showMenu ? '' : 'hidden')"
+    [class]="'buttons--button-3 ' + 'button-2-'+(showMenu ? 'shown' : 'hidden')"
     (click)="toggleCompletedPrompt()"
   ></app-delete-completed>
   <app-info-button
-    [class]="'buttons--button-4 ' + (showMenu ? '' : 'hidden')"
+    [class]="'buttons--button-4 ' + 'button-3-'+(showMenu ? 'shown' : 'hidden')"
     (click)="toggleInfo()"
   ></app-info-button>
 
