@@ -55,10 +55,14 @@ export class TaskComponent implements OnInit {
   }
 
   updateDate(event: any) {
+    let newDate:Date | undefined;
+    newDate = new Date(event.target.value);
+    if (newDate.getTime() < new Date().getTime()) newDate = undefined;
+
     this.service.changeTasks(this.tasks.map(t => {
       if (t.id == this.task.id) return {
         ...t,
-        date: new Date(event.target.value)
+        date: newDate
       }
       return t;
     }))
