@@ -26,16 +26,15 @@ export class SortComponent implements OnInit, OnChanges {
   }
 
   sortByDeadline() {
-    const newTasks = this.tasks;
     const undated:ITask[] = [];
 
-    newTasks.map(t => {
+    const newTasks = this.tasks.map(t => {
       if (!t.date) {
         undated.push(t);
         return null;
       }
       return t;
-    }).filter(t => t);
+    }).filter(t => t!==null) as ITask[];
 
     newTasks.sort(((a, b) => a.date!.getTime() - b.date!.getTime()));
     newTasks.push(...undated);
