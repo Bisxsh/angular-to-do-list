@@ -39,8 +39,9 @@ export class ActionButtonComponent {
     this.toggleMenu();
   }
 
-  toggleInfo() {
+  toggleInfo(dismiss: boolean = false) {
     this.showInfo = !this.showInfo;
+    if (dismiss) this.toggleMenu();
   }
 
   toggleMenu() {
